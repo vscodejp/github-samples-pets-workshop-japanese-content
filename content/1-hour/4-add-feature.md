@@ -1,98 +1,98 @@
-# Add the filter feature
+# フィルター機能の追加
 
-| [← Providing custom instructions][walkthrough-previous] | [Next: Bonus content →][walkthrough-next] |
+| [← カスタム指示の提供][walkthrough-previous] | [次へ: ボーナスコンテンツ →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-We've explored how we can use GitHub Copilot to explore our project and to provide context to ensure the suggestions we receive are to the quality we expect. Now let's turn our attention to putting all this prep work into action by generating new code! We'll use GitHub Copilot to aid us in adding functionality to our website.
+プロジェクトを探索し、受け取る提案が期待する品質になるようにコンテキストを提供するGitHub Copilotの使用方法を探索しました。今度は、この準備作業を活用して新しいコードを生成することに注意を向けましょう！GitHub Copilotを使用してウェブサイトに機能を追加することを支援します。
 
-## Scenario
+## シナリオ
 
-The website currently lists all dogs in the database. While this was appropriate when the shelter only had a few dogs, as time has gone on the number has grown and it's difficult for people to sift through who's available to adopt. The shelter has asked you to add filters to the website to allow a user to select a breed of dog and only display dogs which are available for adoption.
+ウェブサイトは現在、データベース内のすべての犬をリストしています。保護施設が数匹の犬しかいなかった時はこれで適切でしたが、時間が経つにつれて数が増え、養子縁組可能な犬を人々が探すのが困難になっています。保護施設は、ユーザーが犬種を選択して、養子縁組可能な犬のみを表示できるフィルターをウェブサイトに追加するよう依頼しました。
 
 ## Copilot Edits
 
-Previously we utilized Copilot chat, which is great for working with an individual file or asking questions about our code. However, many updates necessitate changes to multiple files throughout a codebase. Even a seemingly basic change to a webpage likely requires updating HTML, CSS and JavaScript files. Copilot Edits allows you to modify multiple files at once.
+以前はCopilotチャットを使用しましたが、これは個別のファイルで作業したり、コードについて質問したりするのに適しています。しかし、多くの更新はコードベース全体で複数のファイルへの変更を必要とします。ウェブページの一見基本的な変更でも、HTML、CSS、JavaScriptファイルの更新が必要になることがあります。Copilot Editsを使用すると、複数のファイルを一度に変更できます。
 
-With Copilot Edits, you will add the files which need to be updated to the context. Once you provide the prompt, Copilot Edits will begin the updates across all files in the context. It also has the ability to create new files or add files to the context as it deems appropriate.
+Copilot Editsでは、更新が必要なファイルをコンテキストに追加します。プロンプトを提供すると、Copilot Editsはコンテキスト内のすべてのファイルで更新を開始します。また、適切と判断した場合に新しいファイルを作成したり、コンテキストにファイルを追加したりする機能もあります。
 
-## Add the filters to the dog list page
+## 犬リストページにフィルターを追加
 
-Adding the filters to the page will require updating a minimum of two files - the Flask backend and the Svelte frontend. Fortunately, Copilot Edits can update multiple files! Let's get our page updated with the help of Copilot Edits.
+ページにフィルターを追加するには、最低でも2つのファイル（FlaskバックエンドとSvelteフロントエンド）を更新する必要があります。幸い、Copilot Editsは複数のファイルを更新できます！Copilot Editsの助けを借りてページを更新しましょう。
 
 > [!NOTE]
-> Because Copilot Edits works best with auto-save enabled, we'll activate it. As we'll explore a little later in this exercise, Copilot Edits provides powerful tools to undo any changes you might not wish to keep.
+> Copilot Editsは自動保存が有効になっているときに最適に動作するため、それをアクティブ化します。この演習で後に探索するように、Copilot Editsは保持したくない変更を元に戻すための強力なツールを提供します。
 
-1. Return to your IDE with your project open.
-2. Close any tabs you have open inside your IDE.
-3. Enable Auto Save by selecting **File** > **Auto Save**.
-4. Open GitHub Copilot Chat.
-5. Switch to edit mode by selecting **Edit** in the chat mode dropdown at the bottom of Chat view (should be currently **Ask**)
-6. If available, select **Claude 3.5 Sonnet** from the list of available models
-7. Select **Add Context...** in the chat window.
-8. Select **server/app.py** and **client/src/components/DogList.svelte** files (you need to select **Add context** for each file) 
+1. プロジェクトが開いているIDEに戻ります。
+2. IDE内で開いているタブをすべて閉じます。
+3. **File** > **Auto Save**を選択して自動保存を有効にします。
+4. GitHub Copilot Chatを開きます。
+5. チャットビューの下部にあるチャットモードドロップダウンで**Edit**を選択してエディットモードに切り替えます（現在は**Ask**になっているはずです）
+6. 利用可能な場合は、利用可能なモデルのリストから**Claude 3.5 Sonnet**を選択します
+7. チャットウィンドウで**Add Context...**を選択します。
+8. **server/app.py**と**client/src/components/DogList.svelte**ファイルを選択します（各ファイルに対して**Add context**を選択する必要があります）
 > [!TIP]
-> If you type the file names after clicking **Add context**, they will show up in the filter. You can also drag the files or right click file in explorer and select `Copilot -> Add File to Chat`)
-9. Ask Copilot to generate the update you want to the page, which is to add filters for both dog breed and if dogs are available for adoption. Use your own phrasing, ensuring the following requirements are met:
-    - A dropdown list should be provided with all breeds
-    - A checkbox should be available to only show available dogs
-    - The page should automatically refresh whenever a change is made
+> **Add context**をクリックした後にファイル名を入力すると、フィルターに表示されます。ファイルをドラッグしたり、エクスプローラーでファイルを右クリックして`Copilot -> Add File to Chat`を選択したりすることもできます）
+9. ページに必要な更新を生成するようCopilotに依頼します。これは、犬種と犬が養子縁組可能かどうかの両方のフィルターを追加することです。独自の表現を使用し、次の要件が満たされていることを確認してください：
+    - すべての犬種を含むドロップダウンリストを提供すべき
+    - 利用可能な犬のみを表示するチェックボックスを利用可能にすべき
+    - 変更が行われるたびにページが自動的に更新されるべき
 
 > [!NOTE]
-> You should use your own phrasing when generating the prompt. As highlighted previously, part of the exercise is to become comfortable creating prompts for GitHub Copilot. One key tip is it's always good to provide more guidance to ensure you get the code you are looking for.
+> プロンプトを生成する際は独自の表現を使用すべきです。前にハイライトしたように、演習の一部はGitHub Copilotのプロンプトを作成することに慣れることです。1つの重要なヒントは、探しているコードを確実に取得するために、より多くのガイダンスを提供することは常に良いことです。
 
-Copilot begins generating the suggestions!
+Copilotが提案の生成を開始します！
 
-## Reviewing the suggestions
+## 提案の確認
 
-Unlike our prior examples where we worked with an individual file, we're now working with changes across multiple files - and maybe multiple sections of multiple files. Fortunately, Copilot Edits has functionality to help streamline this process.
+個別のファイルで作業した前の例とは異なり、現在は複数のファイル間での変更、そしておそらく複数のファイルの複数のセクションで作業しています。幸い、Copilot Editsにはこのプロセスを合理化する機能があります。
 
-GitHub Copilot will propose the following changes:
+GitHub Copilotは次の変更を提案します：
 
-- Update the endpoint to list all dogs to accept parameters for breed and availability.
-- Update the webpage to include the dropdown list and checkbox.
+- すべての犬をリストするエンドポイントを更新して、犬種と利用可能性のパラメータを受け入れます。
+- ウェブページを更新してドロップダウンリストとチェックボックスを含めます。
 
-As the code is generated, you will notice the files are displayed using an experience similar to diff files, with the new code highlighted in green and old code highlighted in red (by default).
+コードが生成されると、ファイルがdiffファイルと同様の体験を使用して表示され、新しいコードが緑色でハイライトされ、古いコードが赤色でハイライトされます（デフォルト）。
 
-If you open an individual file, you can keep or undo changes by using the buttons provided.
+個別のファイルを開くと、提供されたボタンを使用して変更を保持または元に戻すことができます。
 
-![Screenshot of keep/undo interface for an individual file](./images/copilot-edits-keep-undo-file.png)
+![個別ファイルの保持/元に戻すインターフェースのスクリーンショット](./images/copilot-edits-keep-undo-file.png)
 
-You can also keep or undo all changes made.
+すべての変更を保持または元に戻すこともできます。
 
-![Screenshot of keep/discard interface on the chat window](./images/copilot-edits-keep-undo-global.png)
+![チャットウィンドウの保持/破棄インターフェースのスクリーンショット](./images/copilot-edits-keep-undo-global.png)
 
-And
+そして
 
-1. Review the code suggestions to ensure they behave the way you expect them to, making any necessary changes. Once you're satisfied, you can select **Keep** on the files individually or in Copilot Chat to accept all changes.
-2. Open the page at [http://localhost:4321][tailspin-shelter-website] to see the updates!
-3. Run the Python tests by using `python -m unittest` in the terminal as you did previously.
-4. If any changes are needed, explain the required updates to GitHub Copilot and allow it to generate the new code.
+1. コード提案を確認して、期待どおりに動作することを確認し、必要な変更を行います。満足したら、ファイルごとに個別に**Keep**を選択するか、Copilot Chatで**Keep**を選択してすべての変更を受け入れることができます。
+2. [http://localhost:4321][tailspin-shelter-website]でページを開いて更新を確認します！
+3. 以前と同様にターミナルで`python -m unittest`を使用してPythonテストを実行します。
+4. 変更が必要な場合は、GitHub Copilotに必要な更新を説明し、新しいコードを生成させます。
 
 > [!IMPORTANT]
-> Working iteratively a normal aspect of coding with an AI pair programmer. You can always provide more context to ensure Copilot understands, make additional requests, or rephrase your original prompts. To aid you in working iteratively, you will notice undo and redo buttons towards the top of the Copilot Edits interface, which allow you to move back and forth across prompts.
+> 反復的に作業することは、AIペアプログラマーとのコーディングの通常の側面です。Copilotが理解するためにより多くのコンテキストを提供したり、追加のリクエストを行ったり、元のプロンプトを言い換えたりすることは常にできます。反復的に作業することを支援するために、Copilot Editsインターフェースの上部に元に戻すボタンと再実行ボタンがあることがわかります。これにより、プロンプト間を前後に移動できます。
 >
-> ![Screenshot of the undo/redo buttons](./images/copilot-edits-history.png)
+> ![元に戻す/再実行ボタンのスクリーンショット](./images/copilot-edits-history.png)
 
-5. Confirm the functionality works as expected, then select **Keep** to accept all the changes.
-6. Optional: Disable Auto Save by unselecting **File** > **Auto Save**.
+5. 機能が期待どおりに動作することを確認し、**Keep**を選択してすべての変更を受け入れます。
+6. オプション：**File** > **Auto Save**の選択を解除して自動保存を無効にします。
 
-## Summary
+## 概要
 
-You've worked with GitHub Copilot to add new features to the website - the ability to filter the list of dogs. With the help of Copilot Edits, you updated multiple files across the project, and iteratively built the desired functionality.
+GitHub Copilotと協力してウェブサイトに新しい機能を追加しました - 犬のリストをフィルタリングする機能です。Copilot Editsの助けを借りて、プロジェクト全体で複数のファイルを更新し、反復的に望ましい機能を構築しました。
 
-## Workshop review
+## ワークショップレビュー
 
-Over the course of the workshop you explore the core functionality of GitHub Copilot. You saw how to use code completion to get inline suggestions, chat participants to explore your project, Copilot instructions to add context, and Copilot Edits to update multiple files.
+ワークショップの過程で、GitHub Copilotのコア機能を探索しました。インライン提案を取得するためのコード補完、プロジェクトを探索するためのチャット参加者、コンテキストを追加するためのCopilot指示、複数のファイルを更新するためのCopilot Editsの使用方法を見ました。
 
-There is no one right way to use GitHub Copilot. Continue to explore and try different prompts to discover what works best for your workflow and how GitHub Copilot can aid your productivity.
+GitHub Copilotを使用する正しい方法は1つではありません。さまざまなプロンプトを探索し続けて、ワークフローに最適な方法とGitHub Copilotが生産性を支援する方法を発見してください。
 
-## Resources
+## リソース
 
-- [Asking GitHub Copilot questions in your IDE][copilot-ask]
-- [Copilot Chat cookbook][copilot-cookbook]
+- [IDEでGitHub Copilotに質問する][copilot-ask]
+- [Copilot Chatクックブック][copilot-cookbook]
 - [Copilot Edits][copilot-edits]
 
-| [← Providing custom instructions][walkthrough-previous] | [Next: Bonus content →][walkthrough-next] |
+| [← カスタム指示の提供][walkthrough-previous] | [次へ: ボーナスコンテンツ →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
 [copilot-ask]: https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide

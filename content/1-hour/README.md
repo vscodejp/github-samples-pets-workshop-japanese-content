@@ -1,62 +1,62 @@
-# Getting started with GitHub Copilot
+# GitHub Copilotの開始
 
-| [← Pets workshop selection][walkthrough-previous] | [Next: Workshop setup →][walkthrough-next] |
+| [← ペットワークショップの選択][walkthrough-previous] | [次へ: ワークショップのセットアップ →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-Built to be your AI pair programmer, [GitHub Copilot][copilot] helps you generate code and focus on what's important. Through the use of code completion you can create code from comments, and functions from just a signature. With Copilot chat you can ask questions about your codebase, create new files and update existing ones, and even perform operations which update files across your entire codebase.
+AIペアプログラマーとして構築された[GitHub Copilot][copilot]は、コードの生成を支援し、重要なことに集中できるようにします。コード補完を通じて、コメントからコードを作成し、シグネチャだけから関数を作成できます。Copilotチャットでは、コードベースについて質問したり、新しいファイルを作成したり、既存のファイルを更新したり、コードベース全体でファイルを更新する操作を実行したりできます。
 
-As with any tool, there are a set of skills which need to be acquired, which is the purpose of this (roughly) one hour workshop. You'll explore the most common workloads available to you by exploring and updating an existing application to add functionality.
+他のツールと同様に、習得する必要があるスキルセットがあり、それがこの（約）1時間のワークショップの目的です。既存のアプリケーションを探索し、機能を追加するために更新することで、利用可能な最も一般的なワークロードを探索します。
 
-## Prerequisites
+## 前提条件
 
-The application for the workshop uses is built primarily with Python (Flask and SQLAlchemy) and Astro (using Tailwind and Svelte). While experience with these frameworks and languages is helpful, you'll be using Copilot to help you understand the project and generate the code. As a result, as long as you are familiar with programming you'll be able to complete the exercises!
-
-> [!NOTE]
-> When in doubt, you can always highlight a block of code you're unfamiliar with and ask GitHub Copilot chat for an explanation!
-
-## Required resources
-
-To complete this workshop, you will need the following:
-
-- A [GitHub account][github-account].
-- Access to [GitHub Copilot][copilot] (which is available for free for individuals!)
-
-## Required local installation
-
-You will also need the following available and installed locally:
-
-### Code editor
-
-- [Visual Studio Code][vscode-link].
-- [Copilot extension installed in your IDE][copilot-extension].
-
-### Local services
-
-- A recent [Node.js runtime][nodejs-link].
-- A recent version of [Python][python-link].
-  - For Windows, you can install [Python via the Windows store](https://apps.microsoft.com/detail/9pjpw5ldxlz5?hl=en-US&gl=US).
-- The [git CLI][git-link].
-- A shell capable of running BASH commands.
+ワークショップで使用するアプリケーションは、主にPython（FlaskとSQLAlchemy）とAstro（TailwindとSvelteを使用）で構築されています。これらのフレームワークと言語の経験は役立ちますが、Copilotを使用してプロジェクトを理解し、コードを生成します。そのため、プログラミングに精通している限り、演習を完了できます！
 
 > [!NOTE]
-> Linux and macOS are able to run BASH commands without additional configuration. For Windows, you will need either [Windows Subsystem for Linux (WS)][windows-subsystem-linux] or the BASH shell available via [git][git-link].
+> わからないコードブロックがある場合は、いつでもハイライトしてGitHub Copilotチャットに説明を求めることができます！
 
-## Getting started
+## 必要なリソース
 
-Ready to get started? Let's go! The workshop scenario imagines you as a developer volunteering your time for a pet adoption center. You've been asked to add a filter to the website to allow people to limit their search results by breed and adoption status. You'll work over the next 5 exercises to perform the tasks!
+このワークショップを完了するには、以下が必要です：
 
-0. [Clone the repository and start the app][walkthrough-next] for the workshop.
-1. [Add an endpoint to the server][stage-1] to list all breeds.
-2. [Explore the project][stage-2] to get a better understanding of what needs to be done.
-3. [Create custom instructions][stage-3] to ensure Copilot chat has additional context.
-4. [Add the new feature][stage-4] to the website, and ensure it works!
+- [GitHubアカウント][github-account]。
+- [GitHub Copilot][copilot]へのアクセス（個人向けに無料で利用可能です！）
 
-## Check out these resources to dive in and learn more
-Check out the resources in [**GitHub-Copilot-Resources.md**][GitHub-Copilot-Resources]. 
+## 必要なローカルインストール
 
-This resource list has been carefully curated to help you to learn more about GitHub Copilot, how to use it effectively, what is coming in the future and more. There are even YouTube playlists that include the latest videos from the GitHub Developer Relations team and others from GitHub. 
+また、以下もローカルで利用可能でインストールされている必要があります：
 
-| [← Pets workshop selection][walkthrough-previous] | [Next: Workshop setup →][walkthrough-next] |
+### コードエディター
+
+- [Visual Studio Code][vscode-link]。
+- [IDEにインストールされたCopilot拡張][copilot-extension]。
+
+### ローカルサービス
+
+- 最新の[Node.jsランタイム][nodejs-link]。
+- 最新バージョンの[Python][python-link]。
+  - Windowsの場合、[Windows store経由でPython](https://apps.microsoft.com/detail/9pjpw5ldxlz5?hl=en-US&gl=US)をインストールできます。
+- [git CLI][git-link]。
+- BASHコマンドを実行できるシェル。
+
+> [!NOTE]
+> LinuxとmacOSは、追加の設定なしでBASHコマンドを実行できます。Windowsの場合、[Windows Subsystem for Linux (WSL)][windows-subsystem-linux]または[git][git-link]経由で利用可能なBASHシェルが必要です。
+
+## 開始
+
+開始準備はできましたか？行きましょう！ワークショップシナリオでは、あなたをペット養子縁組センターでボランティアをしている開発者として想像します。人々が犬種と養子縁組状況で検索結果を制限できるフィルターをウェブサイトに追加するよう依頼されました。次の5つの演習でタスクを実行するために作業します！
+
+0. [ワークショップのリポジトリをクローンしてアプリを開始][walkthrough-next]する。
+1. [サーバーにエンドポイントを追加][stage-1]してすべての犬種をリストする。
+2. [プロジェクトを探索][stage-2]して何をする必要があるかをより良く理解する。
+3. [カスタム指示を作成][stage-3]してCopilotチャットが追加のコンテキストを持つようにする。
+4. [ウェブサイトに新しい機能を追加][stage-4]し、動作することを確認する！
+
+## より深く学ぶためのリソースをチェック
+[**GitHub-Copilot-Resources.md**][GitHub-Copilot-Resources]のリソースをチェックしてください。
+
+このリソースリストは、GitHub Copilotについてより学び、効果的に使用する方法、将来の展望などを学ぶために慎重にキュレーションされています。GitHub Developer Relationsチームやその他のGitHubからの最新ビデオを含むYouTubeプレイリストもあります。
+
+| [← ペットワークショップの選択][walkthrough-previous] | [次へ: ワークショップのセットアップ →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
 [copilot]: https://github.com/features/copilot
@@ -70,7 +70,7 @@ This resource list has been carefully curated to help you to learn more about Gi
 [stage-3]: ./3-copilot-instructions.md
 [stage-4]: ./4-add-feature.md
 [walkthrough-previous]: ../README.md
-[walkthrough-next]: ./0-setup.md
+[walkthrough-next]: ./0-setup_jp.md
 [windows-python-link]: https://apps.microsoft.com/detail/9pjpw5ldxlz5
 [windows-subsystem-linux]: https://learn.microsoft.com/en-us/windows/wsl/about
 [vscode-link]: https://code.visualstudio.com/

@@ -1,77 +1,77 @@
-# Workshop setup
+# ワークショップのセットアップ
 
-| [← Getting started with GitHub Copilot][walkthrough-previous] | [Next: Coding with GitHub Copilot →][walkthrough-next] |
+| [← GitHub Copilotの開始][walkthrough-previous] | [次へ: GitHub Copilotでコーディング →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-To complete this workshop you will need to create a repository with a copy of the contents of this repository. While this can be done by [forking a repository][fork-repo], the goal of a fork is to eventually merge code back into the original (or upstream) source. In our case we want a separate copy as we don't intend to merge our changes. This is accomplished through the use of a [template repository][template-repo]. Template repositories are a great way to provide starters for your organization, ensuring consistency across projects.
+このワークショップを完了するには、このリポジトリの内容をコピーしたリポジトリを作成する必要があります。これは[リポジトリのフォーク][fork-repo]で行うことができますが、フォークの目的は最終的にコードを元の（またはアップストリーム）ソースにマージすることです。私たちの場合、変更をマージする意図がないため、別のコピーが必要です。これは[テンプレートリポジトリ][template-repo]の使用によって実現されます。テンプレートリポジトリは、組織にスターターを提供し、プロジェクト間での一貫性を確保する優れた方法です。
 
-The repository for this workshop is configured as a template, so we can use it to create your repository.
+このワークショップのリポジトリはテンプレートとして設定されているため、これを使用してあなたのリポジトリを作成できます。
 
 > [!IMPORTANT]
-> Ensure you have the [requisite software][required-software] and [requisite resources][required-resources] setup.
+> [必要なソフトウェア][required-software]と[必要なリソース][required-resources]のセットアップが完了していることを確認してください。
 
-## Create your repository
+## リポジトリの作成
 
-Let's create the repository you'll use for your workshop.
+ワークショップで使用するリポジトリを作成しましょう。
 
-1. Navigate to [the repository root](/)
-2. Select **Use this template** > **Create a new repository**
+1. [リポジトリルート](/)に移動します
+2. **Use this template** > **Create a new repository**を選択します
 
-    ![Screenshot of Use this template dropdown](images/0-setup-template.png)
+    ![Use this templateドロップダウンのスクリーンショット](images/0-setup-template.png)
 
-3. Under **Owner**, select the name of your GitHub handle, or the owner specified by your workshop leader.
-4. Under **Repository**, set the name to **pets-workshop**, or the name specified by your workshop leader.
-5. Ensure **Public** is selected for the visibility, or the value indicated by your workshop leader.
-6. Select **Create repository from template**.
+3. **Owner**の下で、あなたのGitHubハンドルの名前、またはワークショップリーダーが指定した所有者を選択します。
+4. **Repository**の下で、名前を**pets-workshop**に設定するか、ワークショップリーダーが指定した名前にします。
+5. 可視性に**Public**が選択されていることを確認するか、ワークショップリーダーが指示した値にします。
+6. **Create repository from template**を選択します。
 
-    ![Screenshot of configured template creation dialog](images/0-setup-configure.png)
+    ![設定されたテンプレート作成ダイアログのスクリーンショット](images/0-setup-configure.png)
 
-In a few moments a new repository will be created from the template for this workshop!
+しばらくすると、このワークショップのテンプレートから新しいリポジトリが作成されます！
 
-## Clone the repository and start the app
+## リポジトリのクローンとアプリの開始
 
-With the repository created, it's now time to clone the repository locally. We'll do this from a shell capable of running BASH commands.
+リポジトリが作成されたので、今度はリポジトリをローカルにクローンします。BASHコマンドを実行できるシェルから行います。
 
-1. Copy the URL for the repository you just created in the prior set.
-2. Open your terminal or command shell.
-3. Run the following command to clone the repository locally (changing directories to a parent directory as appropriate):
+1. 前のセットで作成したリポジトリのURLをコピーします。
+2. ターミナルまたはコマンドシェルを開きます。
+3. 次のコマンドを実行してリポジトリをローカルにクローンします（適切に親ディレクトリにディレクトリを変更してください）：
 
     ```sh
     git clone <INSERT_REPO_URL_HERE>
     ```
 
-4. Change directories into the cloned repository by running the following command:
+4. 次のコマンドを実行してクローンしたリポジトリにディレクトリを変更します：
 
     ```sh
     cd <REPO_NAME_HERE>
     ```
 
-5. Start the application by running the following command:
+5. 次のコマンドを実行してアプリケーションを開始します：
 
     ```sh
     ./scripts/start-app.sh
     ```
 
-The startup script will start two applications:
+スタートアップスクリプトは2つのアプリケーションを開始します：
 
-- The backend Flask app on [localhost:5100][flask-url]. You can see a list of dogs by opening the [dogs API][dogs-api].
-- The frontend Astro/Svelte app on [localhost:4321][astro-url]. You can see the [website][website-url] by opening that URL.
+- [localhost:5100][flask-url]のバックエンドFlaskアプリ。[dogs API][dogs-api]を開くことで犬のリストを見ることができます。
+- [localhost:4321][astro-url]のフロントエンドAstro/Svelteアプリ。そのURLを開くことで[ウェブサイト][website-url]を見ることができます。
 
-## Open your editor
+## エディターを開く
 
-With the code cloned locally, and the site running, let's open the codebase up in VS Code.
+コードをローカルにクローンし、サイトが動作しているので、VS Codeでコードベースを開きましょう。
 
-1. Open VS Code.
-2. Select **File** > **Open Folder**.
-3. Navigate to the folder which contains the project you cloned earlier in this exercise.
-4. With the folder highlighted, select **Open folder**.
+1. VS Codeを開きます。
+2. **File** > **Open Folder**を選択します。
+3. この演習で先ほどクローンしたプロジェクトが含まれるフォルダに移動します。
+4. フォルダがハイライトされた状態で、**Open folder**を選択します。
 
-## Summary and next steps
+## 概要と次のステップ
 
-You've now cloned the repository you'll use for this workshop and have your IDE setup! Next let's [add a new endpoint to the server][walkthrough-next]!
+このワークショップで使用するリポジトリをクローンし、IDEのセットアップが完了しました！次に[サーバーに新しいエンドポイントを追加][walkthrough-next]しましょう！
 
 
-| [← Getting started with GitHub Copilot][walkthrough-previous] | [Next: Coding with GitHub Copilot →][walkthrough-next] |
+| [← GitHub Copilotの開始][walkthrough-previous] | [次へ: GitHub Copilotでコーディング →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
 [astro-url]: http://localhost:4321

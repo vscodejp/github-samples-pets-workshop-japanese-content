@@ -1,43 +1,43 @@
-# Helping GitHub Copilot understand context
+# GitHub Copilotがコンテキストを理解するために
 
-| [← Coding with GitHub Copilot][walkthrough-previous] | [Next: Providing custom instructions →][walkthrough-next] |
+| [← GitHub Copilotでコーディング][walkthrough-previous] | [次へ: カスタム指示の提供 →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-The key to success when coding (and much of life) is context. Before we add code to a codebase, we want to understand the rules and structures already in place. When working with an AI coding assistant such as GitHub Copilot the same concept applies - the quality of suggestion is directly proportional to the context Copilot has. Let's use this opportunity to both explore the project we've been given and how to interact with Copilot to ensure it has the context it needs to do its best work.
+コーディング（そして人生の多く）における成功の鍵はコンテキストです。コードベースにコードを追加する前に、すでに設置されているルールと構造を理解したいと思います。GitHub CopilotなどのAIコーディングアシスタントと作業する場合も同じ概念が適用されます - 提案の品質はCopilotが持っているコンテキストに直接比例します。この機会を使用して、与えられたプロジェクトを探索し、Copilotが最高の仕事をするために必要なコンテキストを確実に持っているようにCopilotとやり取りする方法の両方を学びましょう。
 
-## Scenario
+## シナリオ
 
-Before adding new functionality to the website, you want to explore the existing structure to determine where the updates need to be made.
+ウェブサイトに新しい機能を追加する前に、既存の構造を探索して、更新が必要な場所を決定したいと思います。
 
-## Chat participants and extensions
+## チャット参加者と拡張機能
 
-GitHub Copilot Chat has a set of available [chat participants][chat-participants] and [extensions][copilot-extensions] available to you to both provide instructions to GitHub Copilot and access external services. Chat participants are helpers which work inside your IDE and have access to your project, while extensions can call external services and provide information to you without having to open separate tools. We're going to focus on one core chat participant - `@workspace`.
+GitHub Copilot Chatには、GitHub Copilotに指示を提供したり、外部サービスにアクセスしたりするために利用できる[チャット参加者][chat-participants]と[拡張機能][copilot-extensions]のセットがあります。チャット参加者はIDE内で動作し、プロジェクトにアクセスできるヘルパーであり、拡張機能は外部サービスを呼び出して、別のツールを開くことなく情報を提供できます。1つのコアチャット参加者である`@workspace`に焦点を当てます。
 
-`@workspace` creates an index of your project and allows you to ask questions about what you're currently working on, to find resources inside the project, or add it to the context. It's best to use this when the entirety of your project should be considered or you're not entirely sure where you should start looking. In our current scenario, since we want to ask questions about our project, `@workspace` is the perfect tool for the job.
+`@workspace`はプロジェクトのインデックスを作成し、現在作業している内容について質問したり、プロジェクト内のリソースを見つけたり、コンテキストに追加したりできます。プロジェクト全体を考慮すべき場合や、どこから始めればよいかわからない場合に使用するのが最適です。現在のシナリオでは、プロジェクトについて質問したいので、`@workspace`は仕事に最適なツールです。
 
 > [!NOTE]
-> This exercise doesn't provide specific prompts to type, as part of the learning experience is to discover how to interact with Copilot. Feel free to talk in natural language, describing what you're looking for or need to accomplish.
+> この演習では、学習体験の一部としてCopilotとやり取りする方法を発見することなので、入力する特定のプロンプトを提供しません。自然言語で自由に話し、探していることや達成する必要があることを説明してください。
 
-1. Return to your IDE with the project open.
-2. Close any tabs you may have open in your IDE to ensure the context for Copilot chat is empty.
-3. Open GitHub Copilot Chat.
-4. Select the `+` icon towards the top of Copilot chat to begin a new chat.
-5. Type `@workspace` in the chat prompt window and hit <kbd>tab</kbd> to select or activate it, then continue by asking Copilot about your project. You can ask what technologies are in use, what the project does, where functionality resides, etc.
-6. Spend a few minutes exploring to find the answers to the following questions:
-    - Where's the database the project uses?
-    - What files are involved in listing dogs?
+1. プロジェクトが開いているIDEに戻ります。
+2. IDEで開いている可能性のあるタブをすべて閉じて、Copilotチャットのコンテキストがからであることを確認します。
+3. GitHub Copilot Chatを開きます。
+4. Copilotチャットの上部にある`+`アイコンを選択して新しいチャットを開始します。
+5. チャットプロンプトウィンドウで`@workspace`と入力し、<kbd>tab</kbd>を押して選択またはアクティブ化し、Copilotにプロジェクトについて尋ねることを続けます。使用されている技術、プロジェクトが何をするか、機能がどこに存在するかなどについて尋ねることができます。
+6. 数分間探索して、次の質問への答えを見つけてください：
+    - プロジェクトが使用するデータベースはどこにありますか？
+    - 犬をリストするために関与するファイルは何ですか？
 
-## Summary and next steps
+## 概要と次のステップ
 
-You've explored context in GitHub Copilot, which is key to generating quality suggestions. You saw how you can use chat participants to help guide GitHub Copilot, and how with natural language you can explore the project. Let's see how we can provide even more context to Copilot chat through the use of [Copilot instructions][walkthrough-next].
+GitHub Copilotでコンテキストを探索しました。これは品質の高い提案を生成するための鍵です。チャット参加者を使用してGitHub Copilotをガイドする方法と、自然言語でプロジェクトを探索する方法を見ました。[Copilot指示][walkthrough-next]の使用を通じて、Copilotチャットにさらに多くのコンテキストを提供する方法を見てみましょう。
 
-## Resources
+## リソース
 
-- [Copilot Chat cookbook][copilot-cookbook]
-- [Use Copilot Chat in VS Code][copilot-chat-vscode]
-- [Copilot extensions marketplace][copilot-marketplace]
+- [Copilot Chatクックブック][copilot-cookbook]
+- [VS CodeでCopilot Chatを使用][copilot-chat-vscode]
+- [Copilot拡張機能マーケットプレース][copilot-marketplace]
 
-| [← Coding with GitHub Copilot][walkthrough-previous] | [Next: Providing custom instructions →][walkthrough-next] |
+| [← GitHub Copilotでコーディング][walkthrough-previous] | [次へ: カスタム指示の提供 →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
 [chat-participants]: https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants

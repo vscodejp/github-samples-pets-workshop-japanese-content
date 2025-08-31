@@ -1,80 +1,80 @@
-# Bonus content
+# ボーナスコンテンツ
 
-| [← Add the filter feature][walkthrough-previous] | [Next: Pets workshop selection →][walkthrough-next] |
+| [← フィルター機能の追加][walkthrough-previous] | [次へ: ペットワークショップの選択 →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-## Overview of Copilot Agent Mode
+## Copilotエージェントモードの概要
 
-With chat agent mode in Visual Studio Code, you can use natural language to define a high-level task and to start an agentic code editing session to accomplish that task. In agent mode, Copilot **autonomously** plans the work needed and determines the relevant files and context. It then makes edits to your codebase and invokes tools to accomplish the request you made. Agent mode monitors the outcome of edits and tools and iterates to resolve any issues that arise.
-
-> [!IMPORTANT]
-> While Copilot autonomously determines the operations necessary to complete the requested task, as the developer you are always in charge. You will work with Copilot to ensure everything is completely correctly, reading and reviewing the code. You will also want to continue to follow proper DevOps practices, including code reviews, testing, security scans, etc.
-
-Why would you use agent mode instead of edit mode?
-
-- **Edit scope**: agent mode autonomously determines the relevant context and files to edit. In edit mode, you need to specify the context yourself.
-- **Task complexity**: agent mode is better suited for complex tasks that require not only code edits but also the invocation of tools and terminal commands.
-- **Duration**: agent mode involves multiple steps to process a request, so it might take longer to get a response. For example, to determine the relevant context and files to edit, determine the plan of action, and more.
-- **Self-healing**: agent mode evaluates the outcome of the generated edits and might iterate multiple times to resolve intermediate issues.
-- **Request quota**: in agent mode, depending on the complexity of the task, one prompt might result in many requests to the backend.
-
-### How it works
-
-![How agent mode works](./images/copilot-agent-mode-how-it-works.png)
-
-## Add themes to the Tailspin Shelter website
-
-In this section, you will use Copilot's agent mode to add themes to the Tailspin Shelter website. You will be able to select a theme and apply it to the website.
-
-1. Return to your IDE with the project open.
-2. Close any tabs you may have open in your IDE to ensure the context for Copilot chat is empty.
-3. Select the `+` icon towards the top of Copilot chat to begin a new chat.
-4. Select agent mode, by selecting `Agent` (just like you did `Edit` before) in the model selector dropdown at the bottom of the chat window.
-5. Select one of models (some may not be available) `Claude 3.7 Sonnet`, `Claude 3.5 Sonnet` or `GPT-4.1 (Preview)`
-6. Navigate to [](../prompts/fun-add-themes.md)
-7. Copy the content of the prompt
-8. Paste the content in the copilot prompt input
-9. The agent mode will take its time, since it searches by itself the relevant files to modify, and then do multiple passes including talking with itself to refine the task at hand
-10. While Agent is doing it's thing, take the opportunity to examine the content of prompt that was used.
-11. When the agent is done (you no longer see any spinners and the thumb up/down icons will be visible), open a browser to see the results
-    - Open the page at [http://localhost:4321][tailspin-shelter-website] to see the updates!
-    - Examine the changes made to the files if you like
-    - Was it good? If you are not happy with the results, you can refine the prompt by crafting extra prompts in the chat to improve the end results. Don't start a new session, it's an interactive process.
-12. Press `Done` when you are happy with the results
-
-You _may_ have gotten something like this for the Terminal Theme (generated with claude 3.7)
-
-![Tailspin Shelter Terminal Classic theme](images/tail-spin-shelter-terminal-theme.png)
+Visual Studio Codeのチャットエージェントモードでは、自然言語を使用して高レベルなタスクを定義し、そのタスクを達成するためのエージェンティックコード編集セッションを開始できます。エージェントモードでは、Copilotが**自律的に**必要な作業を計画し、関連するファイルとコンテキストを決定します。その後、コードベースに編集を行い、要求されたタスクを達成するためにツールを呼び出します。エージェントモードは編集とツールの結果を監視し、発生する問題を解決するために反復します。
 
 > [!IMPORTANT]
-> Because LLMs are probabilistic, not deterministic, the exact code generated can vary. The above is a representative example. If your code is different, that's just fine as long as it works!
+> Copilotは要求されたタスクを完了するために必要な操作を自律的に決定しますが、開発者として常にあなたが責任者です。すべてが正しく完了していることを確認するためにCopilotと協力し、コードを読み、レビューします。また、コードレビュー、テスト、セキュリティスキャンなどの適切なDevOps慣行に従い続けることも重要です。
 
-## Play a bit with Copilot
+なぜエディットモードではなくエージェントモードを使用するのでしょうか？
 
-You've made it to the end of the one hour workshop. Congratulations! You've explored the core skills to help you get the most out of GitHub Copilot. From here you can explore various challenges on your own, and see how GitHub Copilot can support you as you continue developing.
+- **編集範囲**：エージェントモードは、関連するコンテキストと編集するファイルを自律的に決定します。エディットモードでは、コンテキストを自分で指定する必要があります。
+- **タスクの複雑さ**：エージェントモードは、コード編集だけでなく、ツールとターミナルコマンドの呼び出しも必要とする複雑なタスクにより適しています。
+- **持続時間**：エージェントモードは、要求を処理するために複数のステップを含むため、応答を得るのに時間がかかる場合があります。たとえば、関連するコンテキストと編集するファイルを決定し、行動計画を決定するなどです。
+- **自己修復**：エージェントモードは、生成された編集の結果を評価し、中間的な問題を解決するために複数回反復する場合があります。
+- **リクエスト割り当て**：エージェントモードでは、タスクの複雑さによっては、1つのプロンプトがバックエンドへの多くのリクエストになる場合があります。
 
-The suggestions listed here are exactly that - suggestions. You're free to come up with your own scenarios or features you think the application should have.
+### 動作方法
 
-You'll also notice there aren't step-by-step instructions here. You've already seen how you can use Copilot to aid you in development. Part of the challenge put forth with these extra suggestions is to apply what you've learned to create code!
+![エージェントモードの動作方法](./images/copilot-agent-mode-how-it-works.png)
 
-### Some prompts to play with
+## Tailspin Shelterウェブサイトにテーマを追加
 
-We have provided you some prompts in [prompts][github-prompts-path] folder, which you can use directly as inspiration for your explorations.
+このセクションでは、CopilotのエージェントモードでTailspin Shelterウェブサイトにテーマを追加します。テーマを選択してウェブサイトに適用できるようになります。
+
+1. プロジェクトが開いているIDEに戻ります。
+2. IDEで開いている可能性のあるタブをすべて閉じて、Copilotチャットのコンテキストが空であることを確認します。
+3. Copilotチャットの上部にある`+`アイコンを選択して新しいチャットを開始します。
+4. チャットウィンドウの下部にあるモデル選択ドロップダウンで（以前に`Edit`を選択したように）`Agent`を選択してエージェントモードを選択します。
+5. 利用可能なモデルの1つ（一部利用できない場合があります）`Claude 3.7 Sonnet`、`Claude 3.5 Sonnet`、または`GPT-4.1 (Preview)`を選択します
+6. [](../prompts/fun-add-themes.md)に移動します
+7. プロンプトの内容をコピーします
+8. copilotプロンプト入力に内容を貼り付けます
+9. エージェントモードは時間がかかります。関連するファイルを自分で検索し、複数のパスを実行し、自分自身と話してタスクを洗練します
+10. エージェントが作業している間、使用されたプロンプトの内容を確認する機会を取ってください。
+11. エージェントが完了したら（スピナーが表示されなくなり、サムズアップ/ダウンアイコンが表示されます）、ブラウザを開いて結果を確認します
+    - [http://localhost:4321][tailspin-shelter-website]でページを開いて更新を確認します！
+    - お好みでファイルに加えられた変更を確認します
+    - 良かったですか？結果に満足していない場合は、エンドユーザーの結果を改善するためにチャットで追加のプロンプトを作成することで、プロンプトを洗練できます。新しいセッションを開始しないでください。それは対話的なプロセスです。
+12. 結果に満足したら、`Done`を押します
+
+Terminalテーマ（claude 3.7で生成）のようなものが得られる_可能性があります_
+
+![Tailspin Shelter Terminal Classicテーマ](images/tail-spin-shelter-terminal-theme.png)
+
+> [!IMPORTANT]
+> LLMは決定論的ではなく確率的であるため、生成される正確なコードは異なる場合があります。上記は代表的な例です。あなたのコードが異なっていても、動作する限り問題ありません！
+
+## Copilotで少し遊んでみる
+
+1時間のワークショップの終わりまで来ました。おめでとうございます！GitHub Copilotを最大限に活用するためのコアスキルを探索しました。ここから、独自にさまざまなチャレンジを探索し、開発を続ける際にGitHub Copilotがどのようにサポートできるかを確認できます。
+
+ここにリストされている提案は、まさにそれ - 提案です。独自のシナリオや、アプリケーションに必要だと思う機能を考案することは自由です。
+
+ここにはステップバイステップの指示もありません。すでにCopilotが開発を支援する方法を見てきました。これらの追加提案で提示されたチャレンジの一部は、学んだことを適用してコードを作成することです！
+
+### 試してみるプロンプト
+
+[prompts][github-prompts-path]フォルダにプロンプトを提供しており、探索のインスピレーションとして直接使用できます。
 
 > [!TIP]
-> These prompts are meant to be used as one shot, but if have prompts that can be are generic, reusable prompt are a great way to share prompts with the team members. They can be placed in a well know folder and be invoked directly in the Copilot Chat by referencing them.
-> Learn more about [reusable prompts in Visual Studio Code][vscode-prompts]
+> これらのプロンプトはワンショットとして使用されることを意図していますが、汎用的で再利用可能なプロンプトがある場合、プロンプトはチームメンバーとプロンプトを共有する優れた方法です。よく知られたフォルダに配置し、Copilot Chatで直接参照することで呼び出すことができます。
+> [Visual Studio Codeでの再利用可能なプロンプト][vscode-prompts]について詳しく学ぶ
 
-### Potential next steps
+### 可能性のある次のステップ
 
-Here's some ideas of how you could continue to grow and build upon what you've done:
+これまでに行ったことに基づいて、継続的に成長し、構築する方法のアイデアをいくつか示します：
 
-- Return to the API endpoints you updated previously in Flask and add unit tests.
-- Add paging support to the full list of dogs or any results page with more than 5 results.
-- Add a form to allow a user to apply to adopt a dog if the dog is available.
-- Add a form to allow users to register a dog they found.
+- 以前にFlaskで更新したAPIエンドポイントに戻り、単体テストを追加します。
+- 犬の完全なリストまたは5つ以上の結果を持つ結果ページにページングサポートを追加します。
+- 犬が利用可能な場合に、ユーザーが犬の養子縁組を申請できるフォームを追加します。
+- ユーザーが見つけた犬を登録できるフォームを追加します。
 
-| [← Add the filter feature][walkthrough-previous] | [Next: Pets workshop selection →][walkthrough-next] |
+| [← フィルター機能の追加][walkthrough-previous] | [次へ: ペットワークショップの選択 →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
 [walkthrough-previous]: ./4-add-feature.md

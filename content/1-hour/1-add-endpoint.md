@@ -1,58 +1,58 @@
-# Coding with GitHub Copilot
+# GitHub Copilotでコーディング
 
-| [← Workshop setup][walkthrough-previous] | [Next: Helping GitHub Copilot understand context →][walkthrough-next] |
+| [← ワークショップのセットアップ][walkthrough-previous] | [次へ: GitHub Copilotがコンテキストを理解するために →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
 
-With code completions, GitHub Copilot provides suggestions in your code editor while you're coding. This can turn comments into code, generate the next line of code, and generate an entire function just from a signature. Code completion helps reduce the amount of boilerplate code and ceremony you need to type, allowing you to focus on the important aspects of what you're creating.
+コード補完により、GitHub Copilotはコーディング中にコードエディター内で提案を提供します。これによって、コメントをコードに変換したり、次の行のコードを生成したり、シグネチャだけから関数全体を生成したりできます。コード補完は、入力する必要がある定型コードや形式的な処理の量を削減し、作成している重要な側面に集中できるようにします。
 
-## Scenario
+## シナリオ
 
-It's standard to work in phases when adding functionality to an application. Given that we know we want to allow users to filter the list of dogs based on breed, we'll need to add an endpoint to provide a list of all breeds. Later we'll add the rest of the functionality, but let's focus on this part for now.
+アプリケーションに機能を追加するときは、段階的に作業するのが標準的です。ユーザーが犬種に基づいて犬のリストをフィルタリングできるようにしたいことがわかっているので、すべての犬種のリストを提供するエンドポイントを追加する必要があります。後で残りの機能を追加しますが、今のところはこの部分に焦点を当てましょう。
 
-The application uses a Flask app with SQLAlchemy as the backend API (in the [/server][server-code] folder), and an Astro app with Svelte as the frontend (in the [/client][client-code] folder). You will explore more of the project later; this exercise will focus solely on the Flask application.
+アプリケーションは、バックエンドAPI（[/server][server-code]フォルダ内）としてSQLAlchemyを使用したFlaskアプリ、フロントエンド（[/client][client-code]フォルダ内）としてSvelteを使用したAstroアプリを使用しています。後でプロジェクトの詳細を探索しますが、この演習はFlaskアプリケーションのみに焦点を当てます。
 
 > [!NOTE]
-> As you begin making changes to the application, there is always a chance a breaking change could be created. If the page stops working, check the terminal window you used previously to start the application for any error messages. You can stop the app by using <kbd>Ctl</kbd>+<kbd>C</kbd>, and restart it by running `./scripts/start-app.sh`.
+> アプリケーションに変更を加え始めると、常に重大な変更が作成される可能性があります。ページが動作しなくなった場合は、アプリケーションを開始するために以前に使用したターミナルウィンドウでエラーメッセージがないか確認してください。<kbd>Ctl</kbd>+<kbd>C</kbd>を使用してアプリを停止し、`./scripts/start-app.sh`を実行して再起動できます。
 
-## Flask routes
+## Flaskルート
 
-While we won't be able to provide a full overview of [routing in Flask][flask-routing], they are defined by using the Python decorator `@app.route`. There are a couple of parameters you can provide to `@app.route`, including the path (or URL) one would use to access the route (such as **api/breeds**), and the [HTTP method(s)][http-methods] which can be used.
+[Flaskでのルーティング][flask-routing]の完全な概要を提供することはできませんが、Pythonデコレータ`@app.route`を使用して定義されます。`@app.route`に提供できるパラメータがいくつかあり、ルートにアクセスするために使用するパス（またはURL）（**api/breeds**など）や、使用できる[HTTPメソッド][http-methods]が含まれます。
 
-## Code completion
+## コード補完
 
-Code completion predicts the next block of code you're about to type based on the context Copilot has. For code completion, this includes the file you're currently working on and any tabs open in your IDE.
+コード補完は、Copilotが持っているコンテキストに基づいて、次に入力しようとしているコードブロックを予測します。コード補完の場合、これには現在作業しているファイルとIDEで開いているタブが含まれます。
 
-Code completion is best for situations where you know what you want to do, and are more than happy to just start writing code with a bit of a helping hand along the way. Suggestions will be generated based both on the code you write (say a function definition) and comments you add to your code.
+コード補完は、何をしたいかがわかっていて、途中で少し手助けをしてもらいながらコードを書き始めることに満足している状況に最適です。提案は、作成するコード（関数定義など）とコードに追加するコメントの両方に基づいて生成されます。
 
-## Create the breeds endpoint
+## breedsエンドポイントの作成
 
-Let's build our new route in our Flask backend with the help of code completion.
+コード補完の助けを借りて、Flaskバックエンドでルートをビルドしましょう。
 
 > [!IMPORTANT]
-> For this exercise, **DO NOT** copy and paste the code snippet provided, but rather type it manually. This will allow you to experience code completion as you would if you were coding back at your desk. You'll likely see you only have to type a few characters before GitHub Copilot begins suggesting the rest.
+> この演習では、提供されたコードスニペットをコピー&ペーストするのではなく、手動で入力してください。これにより、デスクでコーディングしている場合と同じようにコード補完を体験できます。GitHub Copilotが残りを提案し始める前に、数文字しか入力する必要がないことがおそらくわかるでしょう。
 
-1. Return to your IDE with the project open.
-2. Open **server/app.py**.
-3. Locate the comment which reads `## HERE`, which should be at line 68.
-4. Delete the comment to ensure there isn't any confusion for Copilot, and leave your cursor there.
-5. Begin adding the code to create the route to return all breeds from an endpoint of **api/breeds** by typing the following:
+1. プロジェクトが開いているIDEに戻ります。
+2. **server/app.py**を開きます。
+3. `## HERE`と書かれたコメントを見つけます。これは68行目にあるはずです。
+4. Copilotの混乱を避けるためにコメントを削除し、カーソルをそこに置きます。
+5. **api/breeds**のエンドポイントからすべての犬種を返すルートを作成するためのコードの追加を、次のように入力して開始します：
 
     ```python
     @app.route('/api/breeds', methods=['GET'])
     ```
 
-6. Once you see the full function signature, select <kbd>Tab</kbd> to accept the code suggestion.
-7. If it didn't already, code completion should then suggest the remainder of the function signature; just as before select <kbd>Tab</kbd> to accept the code suggestion.
-    
-    The code generated should look a little like this:
+6. 完全な関数シグネチャが表示されたら、<kbd>Tab</kbd>を選択してコード提案を受け入れます。
+7. まだ表示されていない場合、コード補完は関数シグネチャの残りを提案するはずです。前回と同様に<kbd>Tab</kbd>を選択してコード提案を受け入れます。
+
+    生成されたコードは次のようになるはずです：
 
     ```python
     @app.route('/api/breeds', methods=['GET'])
     def get_breeds():
         # Query all breeds
         breeds_query = db.session.query(Breed.id, Breed.name).all()
-        
+
         # Convert the result to a list of dictionaries
         breeds_list = [
             {
@@ -61,36 +61,36 @@ Let's build our new route in our Flask backend with the help of code completion.
             }
             for breed in breeds_query
         ]
-        
+
         return jsonify(breeds_list)
     ```
 
 > [!IMPORTANT]
-> Because LLMs are probabilistic, not deterministic, the exact code generated can vary. The above is a representative example. If your code is different, that's just fine as long as it works!
+> LLMは確率的であり、決定論的ではないため、生成される正確なコードは異なる場合があります。上記は代表的な例です。あなたのコードが異なっていても、動作する限り問題ありません！
 
-8. Add a comment to the newly created function. To do this, place your cursor inside the function (anywhere between the lines `def get_breeds...` and `return jsonify...`). Then, press <kbd>Ctl</kbd>+<kbd>I</kbd> (or <kbd>cmd</kbd>+<kbd>I</kbd> on a Mac) to open the editor inline chat. In the input box, type `/doc`. (You can optionally provide additional details, but it's not required). This will prompt GitHub Copilot to generate a documentation comment for the function. The suggested comment will appear inline in the code (highlighted in green). Click **Accept** to apply the comment to your code, or click **Close** to discard the suggestion. You just used a slash command, a shortcut to streamline a task, these commands eliminate the need for verbose prompts.
+8. 新しく作成した関数にコメントを追加します。これを行うには、関数内にカーソルを置きます（`def get_breeds...`行と`return jsonify...`行の間の任意の場所）。次に、<kbd>Ctl</kbd>+<kbd>I</kbd>（Macでは<kbd>cmd</kbd>+<kbd>I</kbd>）を押してエディターインラインチャットを開きます。入力ボックスに`/doc`と入力します。（追加の詳細を提供することもできますが、必須ではありません）。これにより、GitHub Copilotが関数のドキュメントコメントを生成するよう促されます。提案されたコメントがコード内にインラインで表示されます（緑色でハイライト）。**Accept**をクリックしてコメントをコードに適用するか、**Close**をクリックして提案を破棄します。スラッシュコマンドを使用しました。これはタスクを合理化するショートカットであり、これらのコマンドは冗長なプロンプトの必要性を排除します。
 
-9. **Save** the file.
+9. ファイルを**保存**します。
 
-## Validate the endpoint
+## エンドポイントの検証
 
-With the code created and saved, let's quickly validate the endpoint to ensure it works.
+コードが作成され保存されたので、エンドポイントが動作することを確認するために簡単に検証しましょう。
 
-1. Navigate to [http://localhost:5100/api/breeds][breeds-endpoint] to validate the route. You should see JSON displayed which contains the list of breeds!
+1. [http://localhost:5100/api/breeds][breeds-endpoint]に移動してルートを検証します。犬種のリストを含むJSONが表示されるはずです！
 
-## Summary and next steps
+## 概要と次のステップ
 
-You've added a new endpoint with the help of GitHub Copilot! You saw how Copilot predicted the next block of code you were likely looking for and provided the suggestion inline, helping save you the effort of typing it out manually. Let's start down the path of performing more complex operations by [exploring our project][walkthrough-next].
+GitHub Copilotの助けを借りて新しいエンドポイントを追加しました！Copilotが次に探していそうなコードブロックを予測し、インラインで提案を提供して、手動で入力する手間を省いてくれることがわかりました。[プロジェクトを探索する][walkthrough-next]ことで、より複雑な操作を実行する道筋を始めましょう。
 
-## Resources
+## リソース
 
-- [Code suggestions in your IDE with GitHub Copilot][copilot-suggestions]
-- [Code completions with GitHub Copilot in VS Code][vscode-copilot]
-- [Prompt crafting][prompt-crafting]
-- [Inline chat][inline-chat]
+- [IDEでGitHub Copilotを使ったコード提案][copilot-suggestions]
+- [VS CodeでGitHub Copilotを使ったコード補完][vscode-copilot]
+- [プロンプト作成][prompt-crafting]
+- [インラインチャット][inline-chat]
 
 
-| [← Workshop setup][walkthrough-previous] | [Next: Helping GitHub Copilot understand context →][walkthrough-next] |
+| [← ワークショップのセットアップ][walkthrough-previous] | [次へ: GitHub Copilotがコンテキストを理解するために →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
 [breeds-endpoint]: http://localhost:5100/api/breeds
@@ -102,5 +102,5 @@ You've added a new endpoint with the help of GitHub Copilot! You saw how Copilot
 [inline-chat]: https://code.visualstudio.com/docs/copilot/chat/inline-chat
 [server-code]: /server/
 [vscode-copilot]: https://code.visualstudio.com/docs/copilot/ai-powered-suggestions
-[walkthrough-previous]: ./0-setup.md
+[walkthrough-previous]: ./0-setup_jp.md
 [walkthrough-next]: ./2-explore-project.md
