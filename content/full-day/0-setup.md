@@ -1,28 +1,28 @@
-# Workshop setup
+# ワークショップのセットアップ
 
 | [← Modern DevOps with GitHub][walkthrough-previous] | [Next: Enable Code Scanning →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-To complete this workshop you will need to create a repository with a copy of the contents of this repository. While this can be done by [forking a repository][fork-repo], the goal of a fork is to eventually merge code back into the original (or upstream) source. In our case we want a separate copy as we don't intend to merge our changes. This is accomplished through the use of a [template repository][template-repo]. Template repositories are a great way to provide starters for your organization, ensuring consistency across projects.
+このワークショップを完了するには、このリポジトリの内容のコピーを含むリポジトリを作成する必要があります。これは[リポジトリをフォーク][fork-repo]することで実行できますが、フォークの目的は最終的にコードを元の（またはアップストリーム）ソースにマージすることです。今回の場合、変更をマージする予定がないため、別のコピーが必要です。これは[テンプレートリポジトリ][template-repo]の使用によって実現されます。テンプレートリポジトリは、プロジェクト間の一貫性を確保し、組織にスターターを提供する優れた方法です。
 
-The repository for this workshop is configured as a template, so we can use it to create your repository.
+このワークショップのリポジトリはテンプレートとして構成されているため、これを使用してあなたのリポジトリを作成できます。
 
-## Create your repository
-Let's create the repository you'll use for your workshop.
+## リポジトリを作成する
+ワークショップで使用するリポジトリを作成しましょう。
 
-1. Navigate to [the repository root][repo-root]
-2. Select **Use this template** > **Create a new repository**
-    ![Screenshot of Use this template dropdown](../1-hour/images/0-setup-template.png)
-3. Under **Owner**, select the name of your GitHub handle, or the owner specified by your workshop leader.
-4. Under **Repository**, set the name to **pets-workshop**, or the name specified by your workshop leader.
-5. Ensure **Public** is selected for the visibility, or the value indicated by your workshop leader.
-6. Select **Create repository from template**.
-    ![Screenshot of configured template creation dialog](../1-hour/images/0-setup-configure.png)
+1. [リポジトリのルート][repo-root] に移動します
+2. **Use this template** > **Create a new repository** を選択します
+    ![Use this template ドロップダウンのスクリーンショット](../1-hour/images/0-setup-template.png)
+3. **Owner** の下で、あなたの GitHub ハンドルの名前、またはワークショップリーダーが指定した所有者を選択します。
+4. **Repository** の下で、名前を **pets-workshop**、またはワークショップリーダーが指定した名前に設定します。
+5. 可視性について **Public** が選択されていることを確認するか、ワークショップリーダーが指示した値を選択します。
+6. **Create repository from template** を選択します。
+    ![構成されたテンプレート作成ダイアログのスクリーンショット](../1-hour/images/0-setup-configure.png)
 
-In a few moments a new repository will be created from the template for this workshop!
+数分でこのワークショップ用のテンプレートから新しいリポジトリが作成されます！
 
-## Summary and next steps
-You've now created the repository you'll use for this workshop! Next let's [enable Code Scanning][walkthrough-next] to secure the code we write.
+## まとめと次のステップ
+これでワークショップで使用するリポジトリを作成しました！次に、書くコードをセキュアにするために[コードスキャンを有効化][walkthrough-next]しましょう。
 
 | [← Modern DevOps with GitHub][walkthrough-previous] | [Next: Enable Code Scanning →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|

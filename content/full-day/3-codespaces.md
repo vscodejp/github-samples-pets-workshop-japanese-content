@@ -1,58 +1,58 @@
-# Cloud-based development with GitHub Codespaces
+# GitHub Codespaces を使ったクラウドベース開発
 
 | [← Project management with GitHub Issues][walkthrough-previous] | [Next: Continuous integration and testing →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-One of the biggest challenges organizations face is onboarding new developers to projects. There are libraries to install, services to configure, version issues, obscure error messages... It can literally take days to get everything running before a developer is able to write their first line of code. [GitHub Codespaces][codespaces] is built to streamline this entire process. You can configure a container for development which your developers can access with just a couple of clicks from basically anywhere in the world. The container runs in the cloud, has everything already setup, and ready to go. Instead of days your developers can start writing code in seconds.
+組織が直面する最大の課題の一つは、新しい開発者をプロジェクトにオンボーディングすることです。インストールするライブラリ、設定するサービス、バージョンの問題、分かりにくいエラーメッセージがあります...開発者が最初のコード行を書けるようになる前に、すべてを動作させるのに文字通り数日かかることがあります。[GitHub Codespaces][codespaces] は、このプロセス全体を合理化するために構築されています。開発者が世界中のほぼどこからでも数回のクリックでアクセスできる開発用コンテナを設定できます。コンテナはクラウドで実行され、すべてが既にセットアップされ、すぐに使用できます。開発者は数日ではなく数秒でコードを書き始めることができます。
 
-GitHub Codespaces allows you to develop using the cloud-based container and Visual Studio Code in your browser window, meaning no local installation is required; you can do development with a tablet and a keyboard! You can also connect your local instance of [Visual Studio Code][vscode-codespaces].
+GitHub Codespaces では、クラウドベースのコンテナとブラウザウィンドウの Visual Studio Code を使用して開発できます。つまり、ローカルインストールは不要です。タブレットとキーボードで開発できます！[Visual Studio Code][vscode-codespaces] のローカルインスタンスに接続することもできます。
 
-Let's explore how to create and configure a codespaces for your project, and see how you can develop in your browser.
+プロジェクト用の codespace を作成・設定する方法を探索し、ブラウザで開発する方法を見てみましょう。
 
-## Using the default container
+## デフォルトコンテナの使用
 
-GitHub provides a [default container][github-universal-container] for all repositories. This container is based on a Linux image, and contains many popular runtimes including Node.js, Python, PHP and .NET. In many scenarios, this default container might be all you need. You also have the ability to configure a custom container for the repository, as you'll see later in this exercise. For now, let's explore how to use the default container.
+GitHub はすべてのリポジトリに[デフォルトコンテナ][github-universal-container]を提供しています。このコンテナは Linux イメージに基づいており、Node.js、Python、PHP、.NET など多くの人気のあるランタイムが含まれています。多くのシナリオでは、このデフォルトコンテナが必要なすべてかもしれません。また、後でこの演習で見るように、リポジトリ用にカスタムコンテナを設定する機能もあります。今のところ、デフォルトコンテナの使用方法を探索しましょう。
 
-1. If not already open, open your repository in your browser.
-1. From the **Code** tab (suggest to open a new browser tab) in your repo, access the green **<> Code** dropdown button and from the **Codespaces** tab click **Create codespace on main**.
-1. Allow the Codespace to load; it should take less than 30 seconds because we are using the default image.
+1. まだ開いていない場合は、ブラウザでリポジトリを開きます。
+1. リポジトリの **Code** タブから（新しいブラウザタブを開くことを提案）、緑色の **<> Code** ドロップダウンボタンにアクセスし、**Codespaces** タブから **Create codespace on main** をクリックします。
+1. Codespace の読み込みを待ちます。デフォルトイメージを使用しているため、30秒未満で完了するはずです。
 
-## Defining a custom container
+## カスタムコンテナの定義
 
-One thing that's really great is the [default dev container][github-universal-container-definition] has **.NET 7**, **node**, **python**, **mvn**, and more. But what if you need other tools? Or in our case, we want don't want to have each developer install the **[GitHub Copilot Extension][copilot-extension]**; we want to have everything pre-configured from the start!
+本当に素晴らしいのは、[デフォルト dev container][github-universal-container-definition]に **.NET 7**、**node**、**python**、**mvn** などが含まれていることです。しかし、他のツールが必要な場合はどうでしょうか？または今回の場合、各開発者に **[GitHub Copilot Extension][copilot-extension]** をインストールしてもらいたくないので、最初からすべてを事前設定したいのです！
 
-Let's create our own dev container! The [dev container is configured][dev-containers-docs] by creating the Docker files Codespaces will use to create and configure the container, and providing any customizations in the `devcontainer.json` file. Customizations provided in `devcontainer.json` can include ports to open, commands to run, and extension to install in Visual Studio Code (either running locally on the desktop or in the browser). This configuration becomes part of the repository. All developers who wish to contribute can then create a new instance of the container based on the configuration you provided.
+独自の dev container を作成しましょう！[dev container は設定][dev-containers-docs]されます。Codespaces がコンテナを作成・設定するために使用する Docker ファイルを作成し、`devcontainer.json` ファイルでカスタマイゼーションを提供します。`devcontainer.json` で提供されるカスタマイゼーションには、開くポート、実行するコマンド、Visual Studio Code にインストールする拡張機能（デスクトップまたはブラウザでローカルに実行）が含まれます。この設定はリポジトリの一部になります。貢献したいすべての開発者は、提供した設定に基づいてコンテナの新しいインスタンスを作成できます。
 
-1. Access the Command Palette (<kbd>F1</kbd> or clicking ☰ → View → Command Palette), then start typing **dev container**.
-2. Select **Codespaces: Add Development Container Configuration Files...** .
-3. Select **Create a new configuration...**.
-4. Scroll down and select **Node.js & TypeScript**.
-5. Select **22-bookworm (default)**.
-6. Select the following features to add into your container:
+1. コマンドパレット（<kbd>F1</kbd> またはクリック ☰ → View → Command Palette）にアクセスし、**dev container** と入力し始めます。
+2. **Codespaces: Add Development Container Configuration Files...** を選択します。
+3. **Create a new configuration...** を選択します。
+4. 下にスクロールして **Node.js & TypeScript** を選択します。
+5. **22-bookworm (default)** を選択します。
+6. コンテナに追加する以下の機能を選択します：
     - **Azure CLI**
     - **GitHub CLI**
     - **Python**
 
 > [!NOTE]
-> You can type the name of the feature you want to filter the list.
+> 機能の名前を入力してリストをフィルタできます。
 
-7. Select **OK** to add the features.
-8. Select **Keep defaults** to use the default configuration.
-9. If you receive the prompt **File './.github/dependabot.yml' already exists, overwrite?**, select **Skip**.
+7. **OK** を選択して機能を追加します。
+8. **Keep defaults** を選択してデフォルト設定を使用します。
+9. **File './.github/dependabot.yml' already exists, overwrite?** のプロンプトが表示された場合は、**Skip** を選択します。
 
 > [!IMPORTANT]
-> Your new container definition files will be created into the **.devcontainer** folder. **DO NOT** select **Rebuild Now**; we'll do that in just a moment.
+> 新しいコンテナ定義ファイルは **.devcontainer** フォルダに作成されます。**Rebuild Now** は選択**しないでください**。すぐに実行します。
 
-You have now defined the container to be used by your codespace. This contains the necessary services and tools for your code.
+これで codespace で使用されるコンテナを定義しました。これにはコードに必要なサービスとツールが含まれています。
 
-## Customize the extensions
+## 拡張機能をカスタマイズする
 
-Creating a development environment isn't solely focused on the services. Developers rely on various extensions and plugins for their [integrated development environments (IDEs)][IDE]. To ensure consistency, you may want to define a set of extensions to automatically install. When using GitHub Codespaces and either a local instance of Visual Studio Code or the browser-based version, you can add a list of [extensions][vscode-extensions] to the **devcontainer.json** file.
+開発環境の作成は、サービスにのみ焦点を当てているわけではありません。開発者は[統合開発環境（IDE）][IDE]のための様々な拡張機能とプラグインに依存しています。一貫性を確保するために、自動的にインストールする拡張機能のセットを定義したい場合があります。GitHub Codespaces と Visual Studio Code のローカルインスタンスまたはブラウザベースのバージョンのいずれかを使用する場合、**devcontainer.json** ファイルに[拡張機能][vscode-extensions]のリストを追加できます。
 
-Before rebuilding the container, let's add **GitHub.copilot** to the list of extensions.
+コンテナを再構築する前に、拡張機能のリストに **GitHub.copilot** を追加しましょう。
 
-1. Remaining in the codespace, open **devcontainer.json** inside the **.devcontainer** folder.
-2. Locate the following section:
+1. codespace にとどまり、**.devcontainer** フォルダ内の **devcontainer.json** を開きます。
+2. 次のセクションを見つけます：
 
     ```json
     "features": {
@@ -61,8 +61,8 @@ Before rebuilding the container, let's add **GitHub.copilot** to the list of ext
 	}
     ```
 
-3. Add a comma (`,`) to the end of the last `}`, which should be line 10.
-4. Immediately below that line, paste the following code to provide the list of extensions you wish to have for your dev container:
+3. 最後の `}` の終わりにコンマ（`,`）を追加します。これは10行目にあるはずです。
+4. その行のすぐ下に、dev container に必要な拡張機能のリストを提供する次のコードを貼り付けます：
 
     ```json
     "customizations": {
@@ -81,7 +81,7 @@ Before rebuilding the container, let's add **GitHub.copilot** to the list of ext
 	},
     ```
 
-5. Just below the customizations, paste the following code to provide the list of ports which should be made available for development by the codespace:
+5. カスタマイゼーションのすぐ下に、codespace によって開発用に利用可能にすべきポートのリストを提供する次のコードを貼り付けます：
 
     ```json
     "forwardPorts": [
@@ -91,45 +91,45 @@ Before rebuilding the container, let's add **GitHub.copilot** to the list of ext
 	],
     ```
 
-6. Just below the list of ports, add the command to run the startup script to the container definition:
+6. ポートのリストのすぐ下に、コンテナ定義にスタートアップスクリプトを実行するコマンドを追加します：
 
     ```json
     "postStartCommand": "chmod +x /workspaces/dog-shelter/scripts/start-app.sh && /workspaces/dog-shelter/scripts/start-app.sh",
     ```
 
-You've now defined a custom container!
+これでカスタムコンテナを定義しました！
 
-## Use the newly defined custom container
+## 新しく定義されたカスタムコンテナを使用する
 
-Whenever someone uses the codespace you defined they'll have an environment with Node.js and Mongo DB, and the GitHub Copilot extension installed. Let's use this container!
+誰かがあなたが定義した codespace を使用するときはいつでも、Node.js と Mongo DB、そして GitHub Copilot 拡張機能がインストールされた環境を持つことになります。このコンテナを使用しましょう！
 
-1. Access the Command Palette (<kbd>F1</kbd> or clicking ☰ → View → Command Palette), then start typing **dev container**.
-1. Type **rebuild** and select **Codespaces: Rebuild container**.
-1. Select **Rebuild Container** on the dialog box. Your container now rebuilds.
+1. コマンドパレット（<kbd>F1</kbd> またはクリック ☰ → View → Command Palette）にアクセスし、**dev container** と入力し始めます。
+1. **rebuild** と入力し、**Codespaces: Rebuild container** を選択します。
+1. ダイアログボックスで **Rebuild Container** を選択します。コンテナが再構築されます。
 
 > [!IMPORTANT]
-> Rebuilding the container can take several minutes. Obviously this isn't an ideal situation for providing fast access to your developers, even if it's faster than creating everything from scratch. Fortunately you can [prebuild your codespaces][codespace-prebuild] to ensure developers can spin one up within seconds.
+> コンテナの再構築には数分かかる場合があります。これは、一からすべてを作成するよりも速いとはいえ、開発者への迅速なアクセスを提供するのに理想的な状況ではないことは明らかです。幸い、開発者が数秒で起動できるように[codespace を事前構築][codespace-prebuild]できます。
 >
-> You may also be prompted to reload the window as extensions install. Reload the window as prompted.
+> また、拡張機能のインストール時にウィンドウの再読み込みを求められる場合があります。プロンプトに従ってウィンドウを再読み込みしてください。
 
-## Interacting with the repository
+## リポジトリとの相互作用
 
-Custom containers for GitHub Codespaces become part of the source code for the repository. Thus they are maintained through standard source control, and will follow the repository as it's forked in the future. This allows this definition to be shared across all developers contributing to the project. Let's upload our new configuration, closing the [issue you created][walkthrough-previous] for defining a development environment.
+GitHub Codespaces のカスタムコンテナは、リポジトリのソースコードの一部になります。したがって、標準のソース管理を通じて維持され、将来フォークされるときにリポジトリに従います。これにより、この定義をプロジェクトに貢献するすべての開発者間で共有できます。開発環境を定義するために[作成した Issue][walkthrough-previous]を閉じながら、新しい設定をアップロードしましょう。
 
 > [!IMPORTANT]
-> For purposes of this exercise we are pushing code updates directly to `main`, our default branch. Normally you would follow the [GitHub flow][github-flow], which we will do in a [later exercise][github-flow-exercise].
+> この演習の目的で、デフォルトブランチである `main` にコードの更新を直接プッシュしています。通常は[GitHub flow][github-flow]に従い、[後の演習][github-flow-exercise]で行います。
 
-1. Open a new terminal window in the codespace by selecting <kbd>Ctl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd> or clicking ☰ → View → Terminal.
-2. Find the issue number for defining the codespace by entering the following command:
+1. <kbd>Ctl</kbd> + <kbd>Shift</kbd> + <kbd>`</kbd> を選択するか、☰ → View → Terminal をクリックして、codespace で新しいターミナルウィンドウを開きます。
+2. 次のコマンドを入力して、codespace を定義するための Issue 番号を見つけます：
 
     ```bash
     gh issue list
     ```
 
 > [!NOTE]
-> It will likely be #1. You'll use this number later in this exercise.
+> おそらく #1 でしょう。この演習の後半でこの番号を使用します。
 
-3. Stage all files, commit the changes with a message to resolve the issue, and push to main by entering the following command in the terminal window, replacing `<ISSUE_NUMBER>` with the number you obtained in the previous step:
+3. すべてのファイルをステージし、Issue を解決するメッセージで変更をコミットし、main にプッシュします。ターミナルウィンドウで次のコマンドを入力し、`<ISSUE_NUMBER>` を前のステップで取得した番号に置き換えます：
 
     ```bash
     git add .
@@ -137,25 +137,25 @@ Custom containers for GitHub Codespaces become part of the source code for the r
     git push
     ```
 > [!NOTE]
-> If prompted, select **Allow** to enable copy/paste for the codespace.
+> プロンプトが表示された場合は、**Allow** を選択して codespace のコピー/ペーストを有効にします。
 
-4. When the command completes, enter the following to list all open issues:
+4. コマンドが完了したら、次を入力してすべての開いている Issue をリストします：
 
     ```bash
     gh issue list
     ```
 
-5. Note the issue for defining a codespace is no longer listed; you completed it and marked it as such with your pull request!
+5. codespace を定義する Issue がもはやリストされていないことに注意してください。あなたはそれを完了し、プルリクエストでそのようにマークしました！
 
 
-## Summary and next steps
-Congratulations! You have now defined a custom development environment including all services and extensions. This eliminates the initial setup hurdle normally required when contributing to a project. Let's use this codespace to [implement testing and continuous integration][walkthrough-next] for the project.
+## まとめと次のステップ
+おめでとうございます！すべてのサービスと拡張機能を含むカスタム開発環境を定義しました。これにより、プロジェクトに貢献する際に通常必要な初期セットアップのハードルが取り除かれます。この codespace を使用してプロジェクトの[テストと継続的インテグレーションを実装][walkthrough-next]しましょう。
 
-## Resources
+## リソース
 - [GitHub Codespaces][codespaces]
-- [Getting started with GitHub Codespaces][codespaces-docs]
-- [Defining dev containers][dev-containers-docs]
-- [GitHub Skills: Code with Codespaces][skills-codespaces]
+- [GitHub Codespaces を始める][codespaces-docs]
+- [dev containers の定義][dev-containers-docs]
+- [GitHub Skills: Codespaces でコーディング][skills-codespaces]
 
 | [← Project management with GitHub Issues][walkthrough-previous] | [Next: Continuous integration and testing →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|

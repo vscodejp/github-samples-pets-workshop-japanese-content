@@ -1,4 +1,4 @@
-# Securing the development pipeline
+# パイプラインのセキュリティ保護
 
 | [← Workshop setup][walkthrough-previous] | [Next: Project management with GitHub Issues →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
@@ -15,82 +15,90 @@ Let's explore each of these, and enable them on our repository. We'll see them i
 
 ## Scenario
 
-Security is important in every application. By detecting potential vulnerabilities early, teams are able to make updates before infiltrations occur. To help secure the website, the shelter wants to update the repository to ensure insecure code and libraries are detected as early as possible. You'll enable Dependabot, secret scanning, and code scanning to meet these needs.
+セキュリティは DevOps プロセスの基本的な部分です。プロセスの早い段階でセキュリティを考慮することで、問題を安価に検出・解決できます。これは「[左にシフト][shift-left]」と呼ばれ、プロセスの早い段階（左側）でセキュリティについて考えることを意味します。
+
+GitHub には、コードをセキュアにし、アプリケーションで使用されている依存関係を監視するためのツールが多数組み込まれています。これらのツールには以下が含まれます：
+
+- **[Dependabot][dependabot]**: 依存関係の更新を自動化し、脆弱性アラートを提供します
+- **[シークレットスキャン][secret-scanning]**: ソースコードとコミット履歴内のシークレットと認証情報をスキャンします
+- **[コードスキャニング][code-scanning]**: 脆弱性とコーディングエラーを特定します
+
+これらのツールを有効にして、コードベースが安全であることを確認しましょう。
 
 ## Dependabot
 
-Most projects take dependencies on open source and other external libraries. While modern development would seemingly be impossible without these resources, we always need to ensure the dependencies we take are secure. [Dependabot][dependabot-quickstart] will look at the dependencies your repository has and raise alerts or even create [pull requests][about-prs] (PRs) to update your dependencies to a secure version.
+ほとんどのプロジェクトはオープンソースやその他の外部ライブラリに依存しています。これらのリソースなしには現代の開発は不可能に見えますが、依存している依存関係が安全であることを常に確認する必要があります。[Dependabot][dependabot-quickstart] はリポジトリが持つ依存関係を調べ、アラートを発生させたり、依存関係を安全なバージョンに更新するための[プルリクエスト][about-prs]（PR）を作成したりします。
 
-### Configuring Dependabot
+### Dependabot の設定
 
-Public repositories on GitHub automatically have Dependabot alerts. This feature will generate alerts whenever an insecure package is detected, and generate an alert. Let's configure Dependabot to create PRs to update a library's version when an insecure one is detected.
+GitHub のパブリックリポジトリには自動的に Dependabot アラートが設定されています。この機能は、不安全なパッケージが検出されるたびにアラートを生成します。不安全なライブラリが検出されたときにライブラリのバージョンを更新する PR を作成するように Dependabot を設定しましょう。
 
-1. Navigate to the repository you created for this workshop.
-1. Select the **Settings** tab.
-2. On the left side, select **Code security**.
-3. Locate the **Dependabot** section towards the middle of the page:
+1. このワークショップ用に作成したリポジトリに移動します。
+1. **Settings** タブを選択します。
+2. 左側で **Code security** を選択します。
+3. ページの中央付近にある **Dependabot** セクションを見つけます：
 
-    ![Screenshot of the dependabot section](./images/1-dependabot.png)
+    ![dependabot セクションのスクリーンショット](./images/1-dependabot.png)
 
-4. Select **Enable** next to **Dependabot security updates** to configure Dependabot to create PRs to resolve alerts.
+4. **Dependabot security updates** の隣にある **Enable** を選択して、アラートを解決するための PR を作成するように Dependabot を設定します。
 
-You have now enabled Dependabot alerts and security updates! Should an insecure library be detected, you will both receive an alert, and Dependabot will create a new pull request to update the version number to a secure version of the library.
+これで Dependabot アラートとセキュリティ更新が有効になりました！不安全なライブラリが検出された場合、アラートを受信し、Dependabot がライブラリの安全なバージョンにバージョン番号を更新するための新しいプルリクエストを作成します。
 
 > [!IMPORTANT]
-> After enabling Dependabot security updates you may notice new [pull requests][about-prs] created for potentially outdated packages. For this workshop you can ignore these pull requests.
+> Dependabot セキュリティ更新を有効にした後、潜在的に古いパッケージに対して作成された新しい[プルリクエスト][about-prs]に気付く場合があります。このワークショップでは、これらのプルリクエストを無視してください。
 
-## Secret scanning
+## シークレットスキャン
 
-Many developers have checked in code with a token or username and passwords. Sometimes this is because the developer was trying to take a shortcut, sometimes it was because they didn't know the proper mechanism to secure the key, and sometimes it was done under the assumption they'll clean it up later but never do.
+多くの開発者が、トークンやユーザー名、パスワードを含むコードをチェックインしています。これは開発者がショートカットを取ろうとしたからか、キーを保護する適切なメカニズムを知らなかったからか、または後で片付けるつもりでそのままにしていたものの決して実行しなかったからかもしれません。
 
-Regardless of the reason, even seemingly innocuous tokens can create a security issue. We always want to take care to not publish tokens and keys, and detect any issues as quickly as possible. Secret scanning is built to do exactly this. When a token is detected in your source code, an alert will be raised. You can even enable push protection, ensuring any code with a [supported secret][supported-secrets] can't be pushed to your repository.
+理由に関係なく、一見無害なトークンでもセキュリティ問題を引き起こす可能性があります。トークンとキーを公開しないよう常に注意し、問題をできるだけ迅速に検出したいと考えています。シークレットスキャンはまさにこれを行うために構築されています。ソースコードでトークンが検出されると、アラートが発生します。プッシュ保護を有効にして、[サポートされているシークレット][supported-secrets]を含むコードがリポジトリにプッシュされないようにすることもできます。
 
-### Enabling secret scanning
+### シークレットスキャンの有効化
 
-Let's enable Secret scanning to detect any potential keys.
+潜在的なキーを検出するためにシークレットスキャンを有効にしましょう。
 
-1. On the same page (**Settings** > **Code security and analysis**), towards the very bottom, locate the **Secret scanning** section.
-1. Next to **Receive alerts on GitHub for detected secrets, keys or other tokens**, select **Enable**.
-1. Next to **Push protection**, select **Enable** to block pushes to the repository which contain a [supported secret][supported-secrets].
+1. 同じページ（**Settings** > **Code security and analysis**）で、一番下に向かって **Secret scanning** セクションを見つけます。
+1. **Receive alerts on GitHub for detected secrets, keys or other tokens** の隣にある **Enable** を選択します。
+1. **Push protection** の隣にある **Enable** を選択して、[サポートされているシークレット][supported-secrets]を含むリポジトリへのプッシュをブロックします。
 
-    ![Screenshot of fully configured secret scanning](./images/1-secret-scanning.png)
+    ![完全に構成されたシークレットスキャンのスクリーンショット](./images/1-secret-scanning.png)
 
-You've now enabled secret scanning and push protection. This helps you both block keys from being pushed to your repository and quickly detect when a key has been added to your source code.
+これで、シークレットスキャンとプッシュ保護が有効になりました。これにより、キーがリポジトリにプッシュされることをブロックし、キーがソースコードに追加されたときに迅速に検出することができます。
 
-## Code scanning
+## コードスキャニング
 
-There is a direct relationship between the amount of code an organization creates and potential attack vectors. We always want to check our source code for vulnerabilities. [Code scanning][about-code-scanning] checks your source code for known vulnerabilities. When an issue is detected on a pull request, a new comment is added highlighting the line of source code providing contextual information for the developer. This allows for the issue to be quickly resolved.
+組織が作成するコードの量と潜在的な攻撃ベクターの間には直接的な関係があります。ソースコードを脆弱性について常にチェックしたいと考えています。[コードスキャニング][about-code-scanning]はソースコードの既知の脆弱性をチェックします。プルリクエストで問題が検出されると、開発者にコンテキスト情報を提供するソースコードの行をハイライトした新しいコメントが追加されます。これにより、問題を迅速に解決できます。
 
 > [!NOTE]
-> Code scanning is built atop [GitHub Actions][github-actions], the automation platform for GitHub. We'll explore the specifics of GitHub Actions later in this workshop and create our own workflows.
+> コードスキャニングは、GitHub の自動化プラットフォームである [GitHub Actions][github-actions] の上に構築されています。このワークショップの後半で GitHub Actions の詳細を探索し、独自のワークフローを作成します。
 
-### Enabling code scanning
+### コードスキャニングの有効化
 
-Let's enable Code scanning to detect vulnerabilities in our source code. We're going to use the default implementation, which runs whenever code is pushed to `main` or a [pull request][about-prs] is made to `main`. It will also run on a set schedule to ensure any newly discovered potential vulnerabilities are detected.
+ソースコードの脆弱性を検出するためにコードスキャニングを有効にしましょう。`main` にコードがプッシュされたとき、または `main` に対して[プルリクエスト][about-prs]が作成されたときに実行されるデフォルトの実装を使用します。また、新しく発見された潜在的な脆弱性が検出されるように、設定されたスケジュールで実行されます。
 
-1. On the same page (**Settings** > **Code security and analysis**), towards the very bottom, locate the **Code scanning** section.
-1. Next to **CodeQL analysis**, select **Set up** > **Default**.
+1. 同じページ（**Settings** > **Code security and analysis**）で、一番下に向かって **Code scanning** セクションを見つけます。
+1. **CodeQL analysis** の隣にある **Set up** > **Default** を選択します。
 
-    ![Screenshot of code scanning dropdown menu](./images/1-code-scanning.png)
+    ![コードスキャニングドロップダウンメニューのスクリーンショット](./images/1-code-scanning.png)
 
-1. On the **CodeQL default configuration** dialog, select **Enable CodeQL**.
+1. **CodeQL default configuration** ダイアログで、**Enable CodeQL** を選択します。
 
-    ![Screenshot of code scanning dialog](./images/1-code-scanning-dialog.png)
+    ![コードスキャニングダイアログのスクリーンショット](./images/1-code-scanning-dialog.png)
 
 > [!IMPORTANT]
-> Your list of languages may be different
+> あなたの言語リストは異なる場合があります
 
-A background process starts, and will configure a workflow for analyzing your code using [CodeQL and code scanning][about-code-scanning].
+バックグラウンドプロセスが開始され、[CodeQL とコードスキャニング][about-code-scanning]を使用してコードを分析するワークフローが設定されます。
 
-## Summary and next steps
+## まとめと次のステップ
 
-In this exercise, you enabled GitHub Advanced Security. You enabled Dependabot to check the libraries your project takes dependencies on, secret scanning to look for keys and tokens, and code scanning to examine your source code. These tools help ensure your application is secure. Next it's time to [file an issue][walkthrough-next] to add feature requests.
+この演習では、GitHub Advanced Security を有効にしました。プロジェクトが依存するライブラリをチェックする Dependabot、キーとトークンを探すシークレットスキャン、ソースコードを検査するコードスキャニングを有効にしました。これらのツールは、アプリケーションが安全であることを確認するのに役立ちます。次は、機能リクエストを追加するために[Issue をファイル][walkthrough-next]する時です。
 
-### Additional resources
+### 追加リソース
 
-- [About GitHub Advanced Security][advanced-security-docs]
-- [GitHub Skills: Secure your repository's supply chain][skills-supply-chain]
-- [GitHub Skills: Secure code game][skills-secure-code]
+- [GitHub Advanced Security について][advanced-security-docs]
+- [GitHub Skills: リポジトリのサプライチェーンを保護する][skills-supply-chain]
+- [GitHub Skills: セキュアコードゲーム][skills-secure-code]
 
 | [← Workshop setup][walkthrough-previous] | [Next: Project management with GitHub Issues →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|

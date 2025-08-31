@@ -1,47 +1,47 @@
-# Modern DevOps with GitHub
+# GitHub を使ったモダンな DevOps
 
 | [← Pets workshop selection][walkthrough-previous] | [Next: Workshop setup →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-[DevOps][devops] is a [portmanteau][portmanteau] of **development** and **operations**. At its core is a desire to bring development practices more inline with operations, and operations practices more inline with development. This fosters better communication and collaboration between teams, breaks down barriers, and gives everyone an investment in ensuring customers are delighted by the software we ship.
+[DevOps][devops] は **development（開発）** と **operations（運用）** を組み合わせた[複合語][portmanteau]です。その核心には、開発のプラクティスを運用により近づけ、運用のプラクティスを開発により近づけたいという願いがあります。これにより、チーム間のより良いコミュニケーションとコラボレーションが促進され、障壁が取り除かれ、私たちが出荷するソフトウェアで顧客に喜んでもらうための投資を全員が行うことができます。
 
-This workshop is built to help guide you through some of the most common DevOps tasks on GitHub. You'll explore:
+このワークショップは、GitHub で最も一般的な DevOps タスクのいくつかをガイドするために構築されています。探索内容：
 
-- Managing projects with [GitHub Issues][github-issues]
-- Creating a development environment with [GitHub Codespaces][github-codespaces]
-- Using [GitHub Copilot][github-copilot] as your AI pair programmer
-- Securing the development pipeline with [GitHub Advanced Security][github-security]
-- Automating tasks and CI/CD with [GitHub Actions][github-actions]
+- [GitHub Issues][github-issues] を使ったプロジェクト管理
+- [GitHub Codespaces][github-codespaces] を使った開発環境の作成
+- AI ペアプログラマーとしての [GitHub Copilot][github-copilot] の使用
+- [GitHub Advanced Security][github-security] を使った開発パイプラインのセキュリティ保護
+- [GitHub Actions][github-actions] を使ったタスクと CI/CD の自動化
 
-## Prerequisites
+## 前提条件
 
-The application for the workshop uses is built primarily with Python (Flask and SQLAlchemy) and Astro (using Tailwind and Svelte). While experience with these frameworks and languages is helpful, you'll be using Copilot to help you understand the project and generate the code. As a result, as long as you are familiar with programming you'll be able to complete the exercises!
+ワークショップで使用するアプリケーションは、主に Python（Flask と SQLAlchemy）と Astro（Tailwind と Svelte を使用）で構築されています。これらのフレームワークと言語の経験があると役立ちますが、Copilot を使ってプロジェクトを理解し、コードを生成する手助けを受けることになります。そのため、プログラミングに慣れていれば、演習を完了することができます！
 
-## Required resources
+## 必要なリソース
 
-To complete this workshop, you will need the following:
+このワークショップを完了するには、以下が必要です：
 
-- A [GitHub account][github-signup]
-- Access to [GitHub Copilot][github-copilot]
+- [GitHub アカウント][github-signup]
+- [GitHub Copilot][github-copilot] へのアクセス
 
-## Getting started
+## はじめに
 
-Ready to get started? Let's go! The workshop scenario imagines you as a developer volunteering your time for a pet adoption center. You will work through the process of creating a development environment, creating code, enabling security, and automating processes.
+始める準備はできましたか？さあ行きましょう！ワークショップのシナリオでは、ペット収養センターでボランティアとして時間を提供する開発者として想像します。開発環境の作成、コードの作成、セキュリティの有効化、プロセスの自動化のプロセスを通して作業します。
 
-0. [Setup your environment][walkthrough-next] for the workshop
-1. [Enable Code Scanning][code-scanning] to ensure new code is secure
-2. [Create an issue][issues] to document a feature request
-3. [Create a codespace][codespaces] to start writing code
-4. [Implement testing][testing] to supplement continuous integration
-5. [Provide Copilot context][context] to generate quality code suggestions
-6. [Add features to your app][code] with GitHub Copilot
-7. [Use the GitHub flow][github-flow] to incorporate changes into your codebase
-8. [Deploy your application][deployment] to Azure to make your application available to users
+0. ワークショップ用に[環境をセットアップ][walkthrough-next]する
+1. 新しいコードが安全であることを確認するために[コードスキャンを有効化][code-scanning]する
+2. 機能リクエストを文書化するために[Issue を作成][issues]する
+3. コードの記述を開始するために[Codespace を作成][codespaces]する
+4. 継続的インテグレーションを補完するために[テストを実装][testing]する
+5. 質の高いコード提案を生成するために[Copilot にコンテキストを提供][context]する
+6. GitHub Copilot で[アプリに機能を追加][code]する
+7. [GitHub flow を使用][github-flow]して変更をコードベースに組み込む
+8. ユーザーがアプリケーションを利用できるように[アプリケーションを Azure にデプロイ][deployment]する
 
-## Check out these resources to dive in and learn more
-Check out the resources in [**GitHub-Copilot-Resources.md**][GitHub-Copilot-Resources]. 
+## さらに深く学ぶためのリソースをチェック
+[**GitHub-Copilot-Resources.md**][GitHub-Copilot-Resources] のリソースをチェックしてください。
 
-This resource list has been carefully curated to help you to learn more about GitHub Copilot, how to use it effectively, what is coming in the future and more. There are even YouTube playlists that include the latest videos from the GitHub Developer Relations team and others from GitHub. 
+このリソースリストは、GitHub Copilot について詳しく学び、効果的に使用する方法、将来の予定などを学ぶのに役立つように注意深くキュレーションされています。GitHub Developer Relations チームや GitHub の他のメンバーからの最新ビデオを含む YouTube プレイリストもあります。
 
 | [← Pets workshop selection][walkthrough-previous] | [Next: Workshop setup →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|

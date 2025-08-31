@@ -1,92 +1,92 @@
-# Deploying the project to the cloud
+# プロジェクトをクラウドにデプロイする
 
 | [← GitHub flow][walkthrough-previous] | [Next: Pets workshop selection →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-The CD portion of CI/CD is continuous delivery or continuous deployment. In a nutshell, it's about taking the product you're building and putting it somewhere to be accessed by the people who need it. There's numerous ways to do this, and the process can become rather involved. We're going to focus on taking our application and deploying it to Azure.
+CI/CD の CD 部分は継続的デリバリーまたは継続的デプロイメントです。要するに、構築している製品を取り、それを必要とする人々がアクセスできる場所に配置することです。これを行う方法は数多くあり、プロセスはかなり複雑になることがあります。私たちはアプリケーションを取り、Azure にデプロイすることに焦点を当てます。
 
 > [!NOTE]
-> We've taken a couple of shortcuts with the application structure to ensure things run smoothly in this workshop.
+> このワークショップでスムーズに動作するように、アプリケーション構造でいくつかのショートカットを取りました。
 
-## Scenario
+## シナリオ
 
-With the prototype built, the shelter is ready to begin gathering feedback from external users. They want to deploy the project to the internet, and ensure any updates merged into main are available as quickly as possible.
+プロトタイプが構築されたことで、シェルターは外部ユーザーからのフィードバックの収集を始める準備ができています。プロジェクトをインターネットにデプロイし、main にマージされた更新ができるだけ迅速に利用できるようにしたいと考えています。
 
-## Return to main
+## main に戻る
 
-To streamline the process, we're going to work directly with the **main** branch. Let's change back to the **main** branch and obtain the updates we pushed previously.
+プロセスを合理化するために、**main** ブランチで直接作業します。**main** ブランチに戻り、以前にプッシュした更新を取得しましょう。
 
-1. Return to your codespace, or reopen it by navigating to your repository and selecting **Code** > **Codespaces** and the name of your codespace.
-2. Open a new terminal window by selecting <kbd>Ctl</kbd>+<kbd>Shift</kbd>+<kbd>`</kbd>.
-3. Run the following commands to checkout the main branch and obtain the updates from the repository:
+1. codespace に戻るか、リポジトリに移動して **Code** > **Codespaces** と codespace の名前を選択して再度開きます。
+2. <kbd>Ctl</kbd>+<kbd>Shift</kbd>+<kbd>`</kbd> を選択して新しいターミナルウィンドウを開きます。
+3. 次のコマンドを実行して main ブランチをチェックアウトし、リポジトリから更新を取得します：
 
     ```sh
     git checkout main
     git pull
     ```
 
-## Identity management
+## アイデンティティ管理
 
-Whenever you're interacting with an external service, you of course need credentials to perform any actions. This holds true when you're creating any form of automated tasks, such as a workflow in GitHub. There are several ways to manage identities, including access tokens, shared passwords, and [Open ID Connect (OIDC)][oidc-docs], with the latter being the newest and preferred mechanism. The advantage to OIDC is it uses short-lived tokens and provides granular control over the operations which can be performed.
+外部サービスと相互作用する際は、もちろん任意のアクションを実行するための認証情報が必要です。これは、GitHubでのワークフローなど、あらゆる形式の自動化されたタスクを作成する場合にも当てはまります。アクセストークン、共有パスワード、[Open ID Connect (OIDC)][oidc-docs]など、アイデンティティを管理する方法はいくつかあり、後者が最新で推奨されるメカニズムです。OIDCの利点は、短時間のトークンを使用し、実行可能な操作に対してきめ細かい制御を提供することです。
 
-Creating and setting up the credentials is typically a task performed by administrators. However, there are tools which can manage this for you, one of which we'll be taking advantage of!
+認証情報の作成と設定は、通常管理者が実行するタスクです。ただし、これを管理してくれるツールがあり、その一つを活用します！
 
-## Asking Azure how to deploy to Azure
+## AzureにデプロイするためにAzureに尋ねる
 
-We previously talked about [extensions for GitHub Copilot chat][extensions-copilot-chat], which allow you to interact with external services. These external services could provide access to information about your DevOps flow, database, and other resources. One such extension is the [Azure extension][azure-copilot-extension], which as the name implies allows you to interact with Azure. You can use the extension to get advice on how to deploy your application, check the status of services, and perform other operations. We'll use this extension to ask how to deploy our application.
+以前、[GitHub Copilot chat の拡張機能][extensions-copilot-chat]について話しました。これにより、外部サービスと相互作用できます。これらの外部サービスは、DevOps フロー、データベース、その他のリソースに関する情報へのアクセスを提供できます。そのような拡張機能の一つが[Azure拡張機能][azure-copilot-extension]で、名前が示すようにAzureと相互作用できます。この拡張機能を使用して、アプリケーションのデプロイ方法についてアドバイスを得たり、サービスのステータスを確認したり、その他の操作を実行したりできます。この拡張機能を使用してアプリケーションのデプロイ方法を尋ねます。
 
-As we've done with other tasks, we don't have a specific prompt to use when talking with Azure, as part of the experience is to learn how best to interact with GitHub Copilot. The requirements for the deployment are:
+他のタスクで行ったように、体験の一部としてGitHub Copilotと最適に相互作用する方法を学ぶことを目的としているため、Azureと話すときに使用する特定のプロンプトはありません。デプロイメントの要件は以下の通りです：
 
-- Deploy the project to the cloud
-- Use a GitHub action to manage the deployment process
+- プロジェクトをクラウドにデプロイする
+- デプロイプロセスを管理するためにGitHub actionを使用する
 
-1. Open GitHub Copilot Chat.
-2. Activate the Azure extension by typing `@azure`, selecting <kbd>Tab</kbd> then asking the extension how to perform the task you wish to perform (see the requirements above).
+1. GitHub Copilot Chatを開きます。
+2. `@azure`と入力し、<kbd>Tab</kbd>を選択してAzure拡張機能を有効化し、実行したいタスクの実行方法を拡張機能に尋ねます（上記の要件を参照）。
 
 > [!NOTE]
-> Since this is your first time using the extension, you will be prompted to signin to Azure. Follow the prompts as they appear.
+> これが拡張機能を初めて使用する場合、Azureにサインインするよう求められます。表示されるプロンプトに従ってください。
 
-3. You should receive a response which highlights the `azd` command, which can be used to both initialize a cloud environment and create the workflow.
+3. `azd`コマンドをハイライトした応答を受け取るはずです。これは、クラウド環境の初期化とワークフローの作成の両方に使用できます。
 
-## Overview of the response from Copilot
+## Copilotからの応答の概要
 
-The response from GitHub Copilot will likely contain instructions to use the following commands:
+GitHub Copilotからの応答には、おそらく以下のコマンドを使用する指示が含まれているでしょう：
 
-- `azd init --from-code` to create the Azure configuration files using [bicep][bicep-docs].
-- `azd auth login` to authenticate to Azure.
-- `azd pipeline config` to create the GitHub Workflow.
+- `azd init --from-code` [bicep][bicep-docs]を使用してAzure設定ファイルを作成する。
+- `azd auth login` Azureに認証する。
+- `azd pipeline config` GitHub Workflowを作成する。
 
-[azd][azd-docs] is a commandline utility to help streamline the deployment process to Azure. We'll use it to:
+[azd][azd-docs]は、Azureへのデプロイプロセスを合理化するのに役立つコマンドラインユーティリティです。これを使用して以下を行います：
 
-- generate the bicep file.
-- create the workflow file.
-- create and configure OIDC for the workflow.
+- bicepファイルを生成する。
+- ワークフローファイルを作成する。
+- ワークフロー用のOIDCを作成・設定する。
 
-If you're curious about **azd** or Azure, you can always ask the extension using GitHub Copilot!
+**azd**やAzureについて興味がある場合は、GitHub Copilotを使用して拡張機能に質問することができます！
 
-## Install azd
+## azdをインストールする
 
-Let's start by installing **azd**.
+**azd**をインストールすることから始めましょう。
 
-1. Run the command in the terminal to install **azd**:
+1. ターミナルで以下のコマンドを実行して**azd**をインストールします：
 
     ```sh
     curl -fsSL https://aka.ms/install-azd.sh | bash
     ```
 
-## Create and configure the bicep file
+## bicepファイルを作成・設定する
 
-Bicep is a domain specific language (DSL) for defining Azure resources. It's dynamic, allowing you to ensure your environment is configured exactly as you need it. We're going to start by allowing **azd** create the bicep file, then make an update to ensure we have an environment variable available for the client to connect to the server.
+BicepはAzureリソースを定義するためのドメイン固有言語（DSL）です。動的で、環境を正確に必要な通りに設定することを確実にできます。**azd**にbicepファイルを作成させることから始め、その後クライアントがサーバーに接続するために利用できる環境変数を確保するための更新を行います。
 
-1. Run the `init` command to create the bicep file.
+1. `init`コマンドを実行してbicepファイルを作成します。
 
     ```sh
     azd init --from-code
     ```
 
-2. Follow the prompts, accepting any defaults provided by the tool, and naming your namespace (which will be used to name the resource group and various resources in Azure) something unique.
-3. Open the bicep file located at **infra**/**resources.bicep**.
-4. Find the section (around line 130) which reads:
+2. プロンプトに従い、ツールが提供するデフォルトを受け入れ、名前空間（Azureのリソースグループと様々なリソースの名前付けに使用される）をユニークな名前にします。
+3. **infra**/**resources.bicep**にあるbicepファイルを開きます。
+4. 次のように記述されているセクション（130行目付近）を見つけます：
 
     ```bicep
     {
@@ -95,7 +95,7 @@ Bicep is a domain specific language (DSL) for defining Azure resources. It's dyn
     }
     ```
 
-5. Create a new line below the closing `}` and add the following to create an environment variable with the URL of the newly created Flask server:
+5. 閉じる`}`の下に新しい行を作成し、新しく作成されたFlaskサーバーのURLを含む環境変数を作成するために以下を追加します：
 
     ```bicep
     {
@@ -105,47 +105,47 @@ Bicep is a domain specific language (DSL) for defining Azure resources. It's dyn
     ```
 
 > [!NOTE]
-> While the syntax resembles JSON, it's not JSON. As a result, resist the urge to add commas to separate the values!
+> 構文はJSONに似ていますが、JSONではありません。そのため、値を区切るためにコンマを追加したい衝動を抑えてください！
 
-## Create the workflow
+## ワークフローを作成する
 
-`azd` can create and configure a workflow (or sometimes called a pipeline) for deploying your project. In particular it will:
+`azd`は、プロジェクトをデプロイするためのワークフロー（時にはパイプラインと呼ばれることもあります）を作成・設定できます。特に以下を行います：
 
-- create OIDC credentials to use for deployment.
-- define the YML file in the **workflows** folder.
+- デプロイに使用するOIDC認証情報を作成する。
+- **workflows**フォルダにYMLファイルを定義する。
 
-Let's let `azd` do its work!
+`azd`に作業を行わせましょう！
 
-1. Return to your terminal window, and run the following command to authenticate with `azd`
+1. ターミナルウィンドウに戻り、以下のコマンドを実行して`azd`で認証します：
 
     ```sh
     azd auth login
     ```
 
-2. Follow the prompts to authenticate to Azure using the credentials you specified previously.
-3. Create the pipeline by running the following command:
+2. プロンプトに従い、以前に指定した認証情報を使用してAzureに認証します。
+3. 以下のコマンドを実行してパイプラインを作成します：
 
     ```sh
     azd pipeline config
     ```
 
-4. Follow the prompts, accepting the defaults. One of the prompts will ask if you wish to perform the deployment now - say yes!
-5. Away your application goes to the cloud!
+4. プロンプトに従い、デフォルトを受け入れます。プロンプトの一つで、今すぐデプロイを実行するかどうか尋ねられます - yesと答えてください！
+5. アプリケーションがクラウドに向かいます！
 
-## Track the deployment and test your application
+## デプロイを追跡してアプリケーションをテストする
 
-The `azd pipeline config` command will create a new workflow file at **.github/workflows/azure-dev.yml**. Let's explore the workflow, track the action as it runs (this will take a few minutes), and test the application!
+`azd pipeline config`コマンドは、**.github/workflows/azure-dev.yml**に新しいワークフローファイルを作成します。ワークフローを探索し、実行中のアクション（これには数分かかります）を追跡し、アプリケーションをテストしましょう！
 
-1. Open the workflow at **.github/workflows/azure-dev.yml**.
-2. Note the `on` section, which contains the flags for `workflow_dispatch` (to support manual deployment), and `push` to automatically deploy when code is pushed to the **main** branch.
-3. Note the core steps, which checkout your code, authenticate to Azure, create or update the infrastructure, then deploy the application.
-4. If you have questions about what the workflow is doing, ask GitHub Copilot!
-5. Navigate to your repository on GitHub.
-6. Open the **Actions** tab, then the action named **.github/workflows/azure-dev.yml**. You should see the action running (the icon will be yellow under the **workflow runs** section).
-7. Select the running workflow (which should be named **Configure Azure Developer Pipeline**).
-8. Select the **build** step.
-9. Track the deployment process, which will take about 5-10 minutes (good time for a water break!).
-10. Once the process completes, expand the **Deploy Application** section. You should see the log indicating the client and server were both deployed:
+1. **.github/workflows/azure-dev.yml**でワークフローを開きます。
+2. `on`セクションに注意してください。これには`workflow_dispatch`（手動デプロイをサポートするため）と`push`（コードが**main**ブランチにプッシュされたときに自動的にデプロイするため）のフラグが含まれています。
+3. コアステップに注意してください。これらはコードをチェックアウトし、Azureに認証し、インフラストラクチャを作成または更新し、アプリケーションをデプロイします。
+4. ワークフローが何をしているかについて質問がある場合は、GitHub Copilotに尋ねてください！
+5. GitHubのリポジトリに移動します。
+6. **Actions**タブを開き、**.github/workflows/azure-dev.yml**という名前のアクションを開きます。アクションが実行されているのが見えるはずです（**workflow runs**セクションの下でアイコンが黄色になっています）。
+7. 実行中のワークフロー（**Configure Azure Developer Pipeline**という名前になっているはずです）を選択します。
+8. **build**ステップを選択します。
+9. デプロイプロセスを追跡します。これには約5-10分かかります（水分補給のよい時間です！）。
+10. プロセスが完了したら、**Deploy Application**セクションを展開します。クライアントとサーバーの両方がデプロイされたことを示すログが表示されるはずです：
 
     ```
     Deploying service client
@@ -172,30 +172,30 @@ The `azd pipeline config` command will create a new workflow file at **.github/w
     - Endpoint: https://server.delightfulfield-8f7ef050.westus.azurecontainerapps.io/
     ```
 
-11.  Select the Endpoint for the client. You should see your application!
+11. クライアント用のエンドポイントを選択します。アプリケーションが表示されるはずです！
 
-You've now deployed your project!
+これでプロジェクトをデプロイしました！
 
-## Summary
+## まとめ
 
-You've now created and configured a full CI/CD process. You implemented security checks, testing, and now deployment. As highlighted previously, enterprise CI/CD processes can be rather complex, but at their core they use the skills you explored during this workshop.
+完全なCI/CDプロセスを作成・設定しました。セキュリティチェック、テスト、そして今度はデプロイメントを実装しました。前述したように、エンタープライズCI/CDプロセスはかなり複雑になることがありますが、その核心では、このワークショップで探索したスキルを使用しています。
 
-## Wrap-up and challenge
+## まとめとチャレンジ
 
-Congratulations! You've gone through an entire DevOps process. You began by creating an issue to document the required work, then ensured everything was in place to run automatically. You performed the updates to the application, pushed everything to your repository, and merged it in!
+おめでとうございます！完全なDevOpsプロセスを経験しました。必要な作業を文書化するIssueの作成から始まり、すべてが自動的に実行される場所にあることを確認しました。アプリケーションの更新を実行し、すべてをリポジトリにプッシュし、マージしました！
 
-If you wish to continue exploring from here, there are a couple of tasks you could pursue:
+ここからさらに探索を続けたい場合は、いくつかのタスクを追求できます：
 
-- Add more functionality to the website! There's a lot you could do, like adding on an adoption form or the ability to store images.
-- Migrate the database to something more powerful such as Postgres or SQL Server.
+- ウェブサイトにさらに機能を追加しましょう！養子縁組フォームの追加や画像を保存する機能など、できることはたくさんあります。
+- データベースをPostgresやSQL Serverなどのより強力なものに移行する。
 
-Work with the workshop leaders as needed to ask questions and get guidance as you continue to build on the skills you learned today!
+今日学んだスキルを引き続き構築するために、必要に応じてワークショップリーダーと協力して質問し、ガイダンスを得てください！
 
-## Resources
+## リソース
 
-- [About security hardening with OpenID Connect][oidc-docs]
-- [Deploying with GitHub Actions][actions-deploy]
-- [What is the Azure Developer CLI?][azd-docs]
+- [OpenID Connect を使ったセキュリティ強化について][oidc-docs]
+- [GitHub Actions を使ったデプロイ][actions-deploy]
+- [Azure Developer CLI とは？][azd-docs]
 
 | [← GitHub flow][walkthrough-previous] | [Next: Pets workshop selection →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|

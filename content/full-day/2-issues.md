@@ -1,52 +1,52 @@
-# Project management with GitHub Issues
+# GitHub Issues を使ったプロジェクト管理
 
 | [← Securing the development pipeline][walkthrough-previous] | [Next: Cloud-based development with GitHub Codespaces →][walkthrough-next] |
 |:-----------------------------------|------------------------------------------:|
 
-"URL or it didn't happen" is a common mantra at GitHub, which is used to highlight the importance of documenting the development process. Feature requests should have a history; who made the request, what was the rationale, who was involved in the process, what decisions were made, why were they made, was the feature implemented, how was it implemented... All of this information helps provide context to both drive future decisions and avoid repeating old mistakes.
+「URL がないとそれは起こらなかった」は GitHub での共通のマントラで、開発プロセスを文書化することの重要性を強調するために使用されています。機能リクエストには履歴が必要です：誰がリクエストしたか、根拠は何か、プロセスに誰が関与したか、どのような決定が下されたか、なぜそれらが下されたか、機能が実装されたか、どのように実装されたか...このすべての情報は、将来の決定を推進し、過去の間違いを繰り返すことを避けるためのコンテキストを提供するのに役立ちます。
 
-GitHub provides various features to enable collaboration and project management, including [GitHub Discussions][discussions], [wikis][wikis], [pull requests][about-prs] and [GitHub Issues][issues]. Each of these can help your organization drive the creation process. We're going to focus on GitHub Issues, which is the foundation of project management on GitHub.
+GitHub は、[GitHub Discussions][discussions]、[wikis][wikis]、[プルリクエスト][about-prs]、[GitHub Issues][issues] など、コラボレーションとプロジェクト管理を可能にする様々な機能を提供しています。これらのそれぞれが、組織の作成プロセスを推進するのに役立ちます。私たちは GitHub Issues に焦点を当てます。これは GitHub でのプロジェクト管理の基盤です。
 
-At their core, issues document some form of an action. They can be a request for a feature, a bug report, or another operation taken by the team. There's no prescribed methodology for using GitHub Issues, allowing your team to determine the best way to manage and drive your projects. A common flow teams will implement on issues is:
+その核心において、Issue は何らかの形でのアクションを文書化します。それは機能のリクエスト、バグレポート、またはチームによって実行されるその他の操作である可能性があります。GitHub Issues を使用するための規定された方法論はなく、チームがプロジェクトを管理し推進する最適な方法を決定できます。チームが Issue に実装する一般的なフローは：
 
-1. File an issue to request a new feature or file a bug report.
-1. Discuss the issue, and determine the correct people and mechanism to resolve the request.
-1. Create a pull request with a proposed implementation of the request.
-1. Further discuss and review the pull request.
-1. Once everyone is satisfied and has signed off, merge the pull request and close the issue.
+1. 新しい機能をリクエストしたり、バグレポートをファイルするために Issue をファイルする。
+1. Issue について議論し、リクエストを解決するための適切な人とメカニズムを決定する。
+1. リクエストの提案された実装でプルリクエストを作成する。
+1. プルリクエストについてさらに議論し、レビューする。
+1. 全員が満足してサインオフしたら、プルリクエストをマージして Issue をクローズする。
 
-## Scenario
+## シナリオ
 
-The shelter wants to begin pushing new features to the website. They want to start by displaying the hours for the current day on the landing page. There's also a need to make updates to help support development and DevOps for both current and future updates. You want to track these updates to document the work being done. You'll do this by creating issues in the repository.
+シェルターはウェブサイトに新機能を追加し始めたいと考えています。まず、ランディングページに当日の営業時間を表示することから始めたいと考えています。また、現在および将来の更新の両方について開発と DevOps をサポートするための更新も必要です。これらの更新を追跡して、実行されている作業を文書化したいと考えています。リポジトリに Issue を作成することでこれを行います。
 
-## Creating issues to manage feature requests
+## 機能リクエストを管理するための Issue の作成
 
-Our project needs two main updates. We want to make the updates to support development for our project, and add a new component to the website to display the shelter's hours. Let's create the issues for each of these. In the next few exercises we'll begin making the appropriate updates to our project to resolve these requests.
+私たちのプロジェクトには2つの主要な更新が必要です。プロジェクトの開発をサポートするための更新と、シェルターの営業時間を表示する新しいコンポーネントをウェブサイトに追加することです。これらのそれぞれに対して Issue を作成しましょう。次のいくつかの演習で、これらのリクエストを解決するためにプロジェクトに適切な更新を加え始めます。
 
-1. Return to the repository you created at the beginning of this workshop.
-1. Select the **Issues** tab.
-1. Select **New issue**.
-2. If prompted for type, select **Blank issue**.
-3. Select **Create more** at the bottom of the page to streamline the creation process.
-4. Create new issues by adding the information indicated in the table below, selecting **Submit new issue** after creating each one:
+1. このワークショップの開始時に作成したリポジトリに戻ります。
+1. **Issues** タブを選択します。
+1. **New issue** を選択します。
+2. タイプを求められた場合は、**Blank issue** を選択します。
+3. 作成プロセスを効率化するために、ページの下部にある **Create more** を選択します。
+4. 下の表に示された情報を追加して新しい Issue を作成し、それぞれを作成した後に **Submit new issue** を選択します：
 
-    | Title                   | Description                                                                    |
+    | タイトル                | 説明                                                                            |
     | ----------------------- | ------------------------------------------------------------------------------ |
-    | Define codespace        | Create the necessary definitions for the codespace to enable cloud development |
-    | Implement testing       | Create a workflow to automate testing for continuous integration               |
-    | Add filters to dog list | Add the code to allow users to filter for dogs by breed and availability       |
+    | Define codespace        | クラウド開発を可能にするために codespace に必要な定義を作成する                      |
+    | Implement testing       | 継続的インテグレーションのためのテストを自動化するワークフローを作成する                 |
+    | Add filters to dog list | ユーザーが犬を品種と利用可能性でフィルタリングできるようにするコードを追加する           |
 
 > [!TIP]
-> You can also save an issue by pressing <kbd>Ctl</kbd> - <kbd>Enter</kbd> (or <kbd>Cmd</kbd> - <kbd>Return</kbd> on a Mac) in the title or description fields.
+> タイトルまたは説明フィールドで <kbd>Ctl</kbd> - <kbd>Enter</kbd>（Mac では <kbd>Cmd</kbd> - <kbd>Return</kbd>）を押すことで Issue を保存することもできます。
 
-You've now defined all the issues for the workshop! You'll use these issues to help guide your progress through the workshop.
+これで、ワークショップのすべての Issue を定義しました！これらの Issue を使用して、ワークショップ全体での進捗をガイドします。
 
-## Summary and next steps
-GitHub Issues are the core to project management on GitHub. Their flexibility allows your organization to determine the best course of action to support your development lifecycle's methodology. With your issues created, it's time to turn your attention to the first big change to the project, [defining a codespace][walkthrough-next].
+## まとめと次のステップ
+GitHub Issues は GitHub でのプロジェクト管理の核心です。その柔軟性により、組織は開発ライフサイクルの方法論をサポートする最適な行動方針を決定できます。Issue を作成したので、プロジェクトへの最初の大きな変更である[codespace の定義][walkthrough-next]に注意を向ける時です。
 
-## Resources
+## リソース
 - [GitHub Issues][issues-docs]
-- [Communicate using markdown][skills-markdown]
+- [Markdown を使ったコミュニケーション][skills-markdown]
 - [GitHub Projects][projects-docs]
 
 | [← Securing the development pipeline][walkthrough-previous] | [Next: Cloud-based development with GitHub Codespaces →][walkthrough-next] |
