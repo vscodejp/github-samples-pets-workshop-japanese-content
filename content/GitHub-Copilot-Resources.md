@@ -1,3 +1,5 @@
+原文: https://github.com/github-samples/pets-workshop/blob/6eaf29e155d12b62700aa06a97b803ac1aa1130a/content/GitHub-Copilot-Resources.md
+
 # GitHub Copilotリソース
 
 [GitHub Copilot](https://gh.io/copilot)についてより深く学ぶための以下のリソースをチェックしてください。

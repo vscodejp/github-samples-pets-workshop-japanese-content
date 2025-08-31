@@ -1,3 +1,5 @@
+原文: https://github.com/github-samples/pets-workshop/blob/6eaf29e155d12b62700aa06a97b803ac1aa1130a/content/how-github-uses-github.md
+
 # GitHubはGitHubをどのように使用しているか
 
 GitHubはGitHub上で構築されています。私たちは新しいツール、機能、製品を作成するために自分たちのツールを使用しています。これにより、私たちは製品が生産性と開発ライフサイクルを支援することを確実にするために、すべてに対して開発者ファーストのアプローチを取ることになりました。
