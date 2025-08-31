@@ -1,3 +1,5 @@
+原文: https://github.com/github-samples/pets-workshop/blob/6eaf29e155d12b62700aa06a97b803ac1aa1130a/content/1-hour/4-add-feature.md
+
 # フィルター機能の追加
 
 | [← カスタム指示の提供][walkthrough-previous] | [次へ: ボーナスコンテンツ →][walkthrough-next] |

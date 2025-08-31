@@ -7,6 +7,10 @@ VS Code Day Tokyo 2025のハンズオン用に、pets-workshopのテキストを
 
 元リビジョン: https://github.com/github-samples/pets-workshop/tree/6eaf29e155d12b62700aa06a97b803ac1aa1130a
 
+## Content
+
+- [content/1-hour/README.md](content/1-hour/README.md)
+
 ## LICENSE
 
 https://github.com/github-samples/pets-workshop/blob/main/LICENSE

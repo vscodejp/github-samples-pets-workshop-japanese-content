@@ -1,3 +1,5 @@
+原文: https://github.com/github-samples/pets-workshop/blob/6eaf29e155d12b62700aa06a97b803ac1aa1130a/content/1-hour/2-explore-project.md
+
 # GitHub Copilotがコンテキストを理解するために
 
 | [← GitHub Copilotでコーディング][walkthrough-previous] | [次へ: カスタム指示の提供 →][walkthrough-next] |
