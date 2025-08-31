@@ -72,7 +72,7 @@ AIペアプログラマーとして構築された[GitHub Copilot][copilot]は�
 [stage-3]: ./3-copilot-instructions.md
 [stage-4]: ./4-add-feature.md
 [walkthrough-previous]: ../README.md
-[walkthrough-next]: ./0-setup_jp.md
+[walkthrough-next]: ./0-setup.md
 [windows-python-link]: https://apps.microsoft.com/detail/9pjpw5ldxlz5
 [windows-subsystem-linux]: https://learn.microsoft.com/en-us/windows/wsl/about
 [vscode-link]: https://code.visualstudio.com/
