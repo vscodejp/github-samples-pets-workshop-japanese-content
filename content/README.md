@@ -1,12 +1,12 @@
-# Pets workshop
+# ペットワークショップ
 
-This repository contains two workshops:
+このリポジトリには2つのワークショップが含まれています：
 
-- a [one hour](./1-hour/README.md) workshop focused on GitHub Copilot.
-- a [full-day](./full-day/README.md) workshop which covers a full day-in-the-life of a developer using GitHub for their DevOps processes.
+- GitHub Copilotに焦点を当てた[1時間](./1-hour/README.md)のワークショップ。
+- GitHubをDevOpsプロセスに使用する開発者の1日の生活全体をカバーする[フルデイ](./full-day/README.md)ワークショップ。
 
-Both workshops are built around a fictional dog shelter, where you are a volunteer helping them build out their website.
+両方のワークショップは、あなたがボランティアとしてウェブサイトの構築を手伝っている架空の犬の保護施設を中心に構築されています。
 
-## Get started
+## 開始方法
 
-To get started, you choose the option above based on the event you're attending, or as indicated by your workshop mentor.
+開始するには、参加しているイベントに基づいて、またはワークショップメンターの指示に従って、上記のオプションを選択してください。
