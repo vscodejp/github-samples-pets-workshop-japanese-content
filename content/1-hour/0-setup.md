@@ -16,7 +16,7 @@
 
 ワークショップで使用するリポジトリを作成しましょう。
 
-1. [リポジトリルート](/)に移動します
+1. [翻訳前のワークショップリポジトリ https://github.com/github-samples/pets-workshop/](https://github.com/github-samples/pets-workshop/) に移動します
 2. **Use this template** > **Create a new repository**を選択します
 
     ![Use this templateドロップダウンのスクリーンショット](images/0-setup-template.png)
