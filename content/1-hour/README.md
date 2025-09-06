@@ -45,6 +45,22 @@ AIペアプログラマーとして構築された[GitHub Copilot][copilot]は�
 
 ### 日本コミュニティ補足
 
+#### WindowsでのNodeJSのインストール
+
+LTS版を使うにはwingetでインストールできます。
+
+```
+ winget install -e --id OpenJS.NodeJS.LTS
+```
+
+#### WindowsでのPythonのインストール
+
+最新を使う場合にはwingetでインストールできます。
+
+```
+winget install -e --id Python.Python.3.13
+```
+
 #### macOSでのPythonのインストール
 
 macOSの場合、デフォルトでインストールされているPythonはバージョン 3.9.6 と古いものです。
@@ -61,6 +77,7 @@ homebrewなどで最新のNode.jsをインストールするか、nodenvなど�
 
 - homebrewで最新のNode.jsをインストールする: `brew install node`
 - nodenv: https://github.com/nodenv/nodenv?tab=readme-ov-file#installation
+
 
 ## 開始
 
