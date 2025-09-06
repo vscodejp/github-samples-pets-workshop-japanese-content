@@ -73,7 +73,7 @@ macOS/linuxでは`python3`、`pip`、`npm`、Windowsでは`py`、`pip`、`npm`�
 
 このコマンドは、パッケージのインストール段階として以下のことを行っています。
 
-** macOS/Linuxの場合 **
+**macOS/Linuxの場合**
 
 ```
 # Pythonの仮想環境の作成
@@ -92,7 +92,7 @@ cd ./client
 npm install
 ```
 
-** Windowsの場合 **
+**Windowsの場合**
 
 ```
 # Pythonの仮想環境の作成
@@ -114,7 +114,7 @@ npm install
 プログラムの実行には以下のコマンドを実行しています。
 それぞれプロセスとして動作するため、別のターミナルを立ち上げて実行してください。
 
-** macOS/Linuxの場合 **
+**macOS/Linuxの場合**
 
 ```
 # Pythonのプログラムの起動
@@ -126,7 +126,7 @@ cd ./client
 npm run dev
 ```
 
-** Windowsの場合 **
+**Windowsの場合**
 
 ```
 # Pythonのプログラムの起動
