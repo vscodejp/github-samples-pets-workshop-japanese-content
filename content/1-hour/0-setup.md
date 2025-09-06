@@ -138,6 +138,24 @@ cd ./client
 npm run dev
 ```
 
+Pythonのパッケージマネージャであるpyenvを利用している場合は以下のようにしてください。
+
+```
+# 新しめのPythonをインストール
+pyenv install 3.13.7
+# ローカルディレクトリでの有効化
+pyenv local 3.13.7
+
+# ~/.penv/shims にパスが通っていない場合、以下のコマンドを実行してください
+eval "$(pyenv init -)"
+
+# Pythonパッケージのインストール
+pip install -r server/requirements.txt
+# Pythonのプログラムの起動
+cd ./server
+python app.py
+```
+
 Pythonのパッケージマネージャであるuvを利用している場合は以下のようにしてください。
 
 ```
