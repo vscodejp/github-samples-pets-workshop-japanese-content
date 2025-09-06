@@ -61,12 +61,12 @@
 
 ### 日本コミュニティの補足
 
-#### Windowsでの実行
+#### WindowsでのPowerShellでの実行
 
 Windowsを使用している場合、PowerShell 7+がインストールされている場合`./scripts/start-app.ps1`が使用できます。Windows11はPowerShell 5であるため、追加のインストールが必要です。
 
 ```
-# winogetでのインストール
+# wingetでのインストール
 winget install --id Microsoft.Powershell --source winget
 
 pwsh .\scripts\start-app.ps1
