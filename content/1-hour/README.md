@@ -43,6 +43,25 @@ AIペアプログラマーとして構築された[GitHub Copilot][copilot]は�
 > [!NOTE]
 > LinuxとmacOSは、追加の設定なしでBASHコマンドを実行できます。Windowsの場合、[Windows Subsystem for Linux (WSL)][windows-subsystem-linux]または[git][git-link]経由で利用可能なBASHシェルが必要です。
 
+### 日本コミュニティ補足
+
+#### macOSでのPythonのインストール
+
+macOSの場合、デフォルトでインストールされているPythonはバージョン 3.9.6 と古いものです。
+
+homebrewなどで最新のPythonをインストールするか、pyenv、uvなどを利用して、最新バージョンをインストールしてください
+
+- homebrewで最新のPythonをインストールする: `brew install python`
+- pyenv: https://github.com/pyenv/pyenv?tab=readme-ov-file#installation
+- uv: https://docs.astral.sh/uv/#installation
+
+#### macOSでのNode.jsのインストール
+
+homebrewなどで最新のNode.jsをインストールするか、nodenvなどを利用して、最新バージョンをインストールしてください
+
+- homebrewで最新のNode.jsをインストールする: `brew install node`
+- nodenv: https://github.com/nodenv/nodenv?tab=readme-ov-file#installation
+
 ## 開始
 
 開始準備はできましたか？行きましょう！ワークショップシナリオでは、あなたをペット養子縁組センターでボランティアをしている開発者として想像します。人々が犬種と譲渡状況で検索結果を制限できるフィルターをウェブサイトに追加するよう依頼されました。次の5つの演習でタスクを実行するために作業します！
