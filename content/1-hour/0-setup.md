@@ -63,7 +63,14 @@
 
 #### Windowsでの実行
 
-Windowsを使用している場合、PowerShellにて`./scripts/start-app.ps1`が使用できます。
+Windowsを使用している場合、PowerShell 7+がインストールされている場合`./scripts/start-app.ps1`が使用できます。Windows11はPowerShell 5であるため、追加のインストールが必要です。
+
+```
+# winogetでのインストール
+winget install --id Microsoft.Powershell --source winget
+
+pwsh .\scripts\start-app.ps1
+```
 
 #### nodejs、pythonを環境管理ツールで実行している方
 
