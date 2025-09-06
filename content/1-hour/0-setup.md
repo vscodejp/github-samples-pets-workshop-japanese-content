@@ -61,9 +61,9 @@
 
 ### 日本コミュニティの補足
 
-#### WindowsでのPowerShellでの実行
+#### bashの代わりにPowerShellでの実行
 
-Windowsを使用している場合、PowerShell 7+がインストールされている場合`./scripts/start-app.ps1`が使用できます。Windows11はPowerShell 5であるため、追加のインストールが必要です。
+Windowsを使用していて、PowerShell 7+がインストールされている場合`./scripts/start-app.ps1`が使用できます。Windows11はPowerShell 5であるため、追加のインストールが必要です。
 
 ```
 # wingetでのインストール
