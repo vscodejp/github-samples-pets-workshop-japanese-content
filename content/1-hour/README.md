@@ -45,6 +45,15 @@ AIペアプログラマーとして構築された[GitHub Copilot][copilot]は�
 
 ### 日本コミュニティ補足
 
+#### Windowsでのgit及びbashのインストール
+
+上記のgitをインストールした場合、Git Bashとして、bashも含まれていています。
+同様のインストールはwingetでもできます。
+
+```
+winget install --id Git.Git -e
+```
+
 #### WindowsでのNodeJSのインストール
 
 LTS版を使うにはwingetでインストールできます。
