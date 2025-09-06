@@ -160,8 +160,14 @@ nodenv local 22.18.0
 # nodeのバージョン確認
 node -v
 
-# ~/.nodenv/shims にパスが通っていない場合、以下のコマンドを実行してください。
+# ~/.nodenv/shims にパスが通っていない場合、以下のコマンドを実行してください
 eval "$(nodenv init -)"
+
+# Node.jsのパッケージのインストール
+cd ./client
+npm install
+# Nodejsのプログラムの起動
+npm run dev
 ```
 
 ## エディターを開く
