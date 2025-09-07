@@ -38,12 +38,12 @@ Copilotを利用できるようにする必要があります。
 
 VS Codeを開き、右下のステータスバーのCopilotのアイコンをクリックして、以下の画像のように「Copilotの設定」が出ている状態であれば、セットアップが必要な状態です。
 
-![](./images/vscodejp_added/brefore_copilot_setup.png)
+<img src="./images/vscodejp_added/brefore_copilot_setup.png" width="30%"/>
 
 「Copilotの設定」をクリックして、GitHub認証を進めてください。
 再度、Copilotのアイコンをクリックしたときに、以下の画像のように使用状況が表示されていればセットアップ完了です。
 
-![](./images/vscodejp_added/after_copilot_setup.png)
+<img src="./images/vscodejp_added/after_copilot_setup.png" width="50%"/>
 
 もし、うまくいかない場合にはリポジトリのDiscussionにて、状況をお知らせください。
 
