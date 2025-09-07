@@ -32,6 +32,23 @@ AIペアプログラマーとして構築された[GitHub Copilot][copilot]は�
 - [Visual Studio Code][vscode-link]。
 - [IDEにインストールされたCopilot拡張][copilot-extension]。
 
+#### 日本コミュニティ補足
+
+Copilotを利用できるようにする必要があります。
+
+VS Codeを開き、右下のステータスバーのCopilotのアイコンをクリックして、以下の画像のように「Copilotの設定」が出ている状態であれば、セットアップが必要な状態です。
+
+![](./images/vscodejp_added/brefore_copilot_setup.png)
+
+「Copilotの設定」をクリックして、GitHub認証を進めてください。
+再度、Copilotのアイコンをクリックしたときに、以下の画像のように使用状況が表示されていればセットアップ完了です。
+
+![](./images/vscodejp_added/after_copilot_setup.png)
+
+もし、うまくいかない場合にはリポジトリのDiscussionにて、状況をお知らせください。
+
+https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09-q-a
+
 ### ローカルサービス
 
 - 最新の[Node.jsランタイム][nodejs-link]。
@@ -44,6 +61,10 @@ AIペアプログラマーとして構築された[GitHub Copilot][copilot]は�
 > LinuxとmacOSは、追加の設定なしでBASHコマンドを実行できます。Windowsの場合、[Windows Subsystem for Linux (WSL)][windows-subsystem-linux]または[git][git-link]経由で利用可能なBASHシェルが必要です。
 
 ### 日本コミュニティ補足
+
+もし、うまくいかない場合にはリポジトリのDiscussionにて、状況をお知らせください。
+
+https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09-q-a
 
 #### Windowsでのgit及びbashのインストール
 

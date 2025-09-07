@@ -204,6 +204,18 @@ npm run dev
 3. この演習で先ほどクローンしたプロジェクトが含まれるフォルダに移動します。
 4. フォルダがハイライトされた状態で、**Open folder**を選択します。
 
+## 準備の完了について、日本コミュニティ補足
+
+./scripts/start-app.sh を実行または、上記補足の代替の「プログラムの実行コマンド」を実行し、Astro/Svelteの開発サーバが起動し、以下のように http://localhost:4321 にて表示アプリケーションが表示されていれば正常です。
+
+![](./images/vscodejp_added/first_app_screen.png)
+
+ハンズオン参加までに、ここまで進めておいてください。
+
+もし、うまくいかない場合にはリポジトリのDiscussionにて、状況をお知らせください。
+
+https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09-q-a
+
 ## 概要と次のステップ
 
 このワークショップで使用するリポジトリをクローンし、IDEのセットアップが完了しました！次に[サーバーに新しいエンドポイントを追加][walkthrough-next]しましょう！
