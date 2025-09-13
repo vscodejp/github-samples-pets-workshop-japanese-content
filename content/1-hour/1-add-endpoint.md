@@ -80,6 +80,13 @@
 
 1. [http://localhost:5100/api/breeds][breeds-endpoint]に移動してルートを検証します。犬種のリストを含むJSONが表示されるはずです！
 
+## 日本コミュニティ補足: 経験者向け課題
+
+この機能の補完を効果的にするために、どのように意図を示すコードを書き、どのように補完されたのか紹介、解説をしてください。
+以下のスレッドに投稿をお願いします。
+
+https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/7
+
 ## 概要と次のステップ
 
 GitHub Copilotの助けを借りて新しいエンドポイントを追加しました！Copilotが次に探していそうなコードブロックを予測し、インラインで提案を提供して、手動で入力する手間を省いてくれることがわかりました。[プロジェクトを探索する][walkthrough-next]ことで、より複雑な操作を実行する道筋を始めましょう。
