@@ -121,7 +121,7 @@ DevContainerは、Dockerコンテナとして開発環境を構築する機能�
 
 - [Visual Studio Code][vscode-link]。
 - [Docker Desktop](https://www.docker.com/ja-jp/products/docker-desktop/)
-- [拡張機能 Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) (<a href="vscode:extension/ms-vscode-remote.remote-containers">VS Codeで開く</a>)
+- [拡張機能 Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
 > [!NOTE]
 > ["必要なローカルインストール"](#必要なローカルインストール)の実施は不要ですが、["必要なリソース"](#必要なリソース)の準備は必要です。
@@ -142,7 +142,7 @@ GitHub Codespacesは、リモートコンテナ機能を利用して、クラウ
 こちらを利用する場合、以下の3つのインストールが必要です。
 
 - [Visual Studio Code][vscode-link]。
-- [拡張機能 GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) (<a href="vscode:extension/GitHub.codespaces">VS Codeで開く</a>)
+- [拡張機能 GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces)
 
 > [!NOTE]
 > ["必要なローカルインストール"](#必要なローカルインストール)の実施は不要ですが、["必要なリソース"](#必要なリソース)の準備は必要です。
