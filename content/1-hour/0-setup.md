@@ -16,6 +16,9 @@
 
 ワークショップで使用するリポジトリを作成しましょう。
 
+> [!IMPORTANT]
+> (日本コミュニティ補足) DevContainer及び、GitHub Codespacesを利用する場合には、以下のリポジトリではなく、[https://github.com/vscodejp/github-samples-pets-workshop-japanese-template](https://github.com/vscodejp/github-samples-pets-workshop-japanese-template)を利用してください。必要な設定が追加されています。
+
 1. [翻訳前のワークショップリポジトリ https://github.com/github-samples/pets-workshop/](https://github.com/github-samples/pets-workshop/) に移動します
 2. **Use this template** > **Create a new repository**を選択します
 
@@ -31,6 +34,9 @@
 しばらくすると、このワークショップのテンプレートから新しいリポジトリが作成されます！
 
 ## リポジトリのクローンとアプリの開始
+
+> ![IMPORTANT]
+> (日本コミュニティ補足) Dev Container及び、GitHub Codespacesを利用する場合には手順が異なります。["DevContainerの利用"](#devcontainerの利用)、["GitHub Codespacesの利用"](#github-codespacesの利用)を参照してください。
 
 リポジトリが作成されたので、今度はリポジトリをローカルにクローンします。BASHコマンドを実行できるシェルから行います。
 
@@ -204,9 +210,64 @@ npm run dev
 3. この演習で先ほどクローンしたプロジェクトが含まれるフォルダに移動します。
 4. フォルダがハイライトされた状態で、**Open folder**を選択します。
 
+## DevContainerの利用
+
+以下の手順で利用します。
+
+## GitHub Codespacesの利用
+
+前述の通り、テンプレートリポジトリが通常と異なり、https://github.com/vscodejp/github-samples-pets-workshop-japanese-template となります。
+
+以下の手順で利用します。
+
+1. 前のセットで作成したリポジトリのURLをコピーします。
+2. ターミナルまたはコマンドシェルを開きます。
+3. 次のコマンドを実行してリポジトリをローカルにクローンします（適切に親ディレクトリにディレクトリを変更してください）：
+
+    ```sh
+    git clone <INSERT_REPO_URL_HERE>
+    ```
+4. VS Codeを開きます。
+5. **ファイル(File)** > **フォルダーを開く(Open Folder)**を選択します。
+6. この演習で先ほどクローンしたプロジェクトが含まれるフォルダに移動します。
+7. フォルダがハイライトされた状態で、**開く(Open folder)**を選択します。
+8. F1を押して、コマンド「開発コンテナー: コンテナーで再度開く(Dev Containers: Reopen in Container)」を実行します。
+9. しばらくすると、コンテナが立ち上がり、VS Codeが再起動します。
+10. VS Code内のターミナルを開きます（下部のパネル内にあります）。
+11. 次のコマンドを実行してアプリケーションを開始します：
+
+    ```sh
+    ./scripts/start-app.sh
+    ```
+
+## GitHub Codespacesの利用
+
+前述の通り、テンプレートリポジトリが通常と異なり、https://github.com/vscodejp/github-samples-pets-workshop-japanese-template となります。
+
+以下の手順で利用します。
+
+1. 前のセットで作成したリポジトリにおいて、"Code"ボタンから、"Codespaces"タブを選択し、"Create codespace on main"を選択します。
+
+    <img src="images/vscodejp_added/create_codespace_on_main.png" width="70%" />
+
+2. Webブラウザ上にVS Codeが表示されます。構築完了までに時間がかかります。右下のインジケータが消えるまでお待ちください。
+3. Webブラウザ上のVS Code内でも作業できますが、ローカルのVS Codeから接続した方が操作しやすいです。左下のCodespacesと書かれた部分をクリックし、表示されるメニューから"Open in VS Code Desktop"を選択します。
+
+    <img src="images/vscodejp_added/remote_button.png" width="50%" />
+
+4. ローカルのVS Codeが起動し、Codespacesに接続されます。
+5. VS Code内のターミナルを開きます（下部のパネル内にあります）。
+6. 次のコマンドを実行してアプリケーションを開始します：
+
+    ```sh
+    ./scripts/start-app.sh
+    ```
+
 ## 準備の完了について、日本コミュニティ補足
 
 ./scripts/start-app.sh を実行または、上記補足の代替の「プログラムの実行コマンド」を実行し、Astro/Svelteの開発サーバが起動し、以下のように http://localhost:4321 にて表示アプリケーションが表示されていれば正常です。
+
+DevContainer、Codespacesを利用する場合、4321ポート以外にポート転送されている可能性があります。ポートの転送リストが、下部パネル中のポートタブにありますので、確認してください。
 
 ![](./images/vscodejp_added/first_app_screen.png)
 
