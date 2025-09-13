@@ -74,7 +74,7 @@ GitHub Copilotは次の変更を提案します：
 2. [http://localhost:4321][tailspin-shelter-website]でページを開いて更新を確認します！
 3. 以前と同様にターミナルで`python -m unittest`を使用してPythonテストを実行します。
 > [!TIP]
-> （日本コミュニティ追記）`python -m unittest`は、`server`ディレクトリは以下で実行します。エラーが発生した場合、Copilotに相談するときは、`#terminalLastCommand`というチャット変数（Chat variable）を利用すると、最後に実施したターミナルでの操作結果を参照してくれます。
+> （日本コミュニティ追記）`python -m unittest`は、`server`ディレクトリは以下で実行します。エラーが発生した場合、Copilotに相談するときは、`#terminalLastCommand`というチャット変数（Chat variables）を利用すると、最後に実施したターミナルでの操作結果を参照してくれます。
 4. 変更が必要な場合は、GitHub Copilotに必要な更新を説明し、新しいコードを生成させます。
 
 > [!IMPORTANT]
