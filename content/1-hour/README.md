@@ -62,6 +62,10 @@ https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discus
 
 ### 日本コミュニティ補足
 
+元リポジトリではローカルにPython、Node.jsのランタイムをインストールすることを前提としていますが、コンテナ内に必要なランタイムをインストールしてローカル環境を変更せずに利用できるDev Container機能やGitHub Codespacesの利用も可能です。
+ローカルでのインストールを避けたい場合や、うまくいかない場合に利用ください。
+方法については、["DevContainerの利用"](#devcontainerの利用)と["GitHub CodeSpacesの利用"](#github-codespacesの利用)を確認ください。
+
 もし、うまくいかない場合にはリポジトリのDiscussionにて、状況をお知らせください。
 
 https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09-q-a
@@ -108,6 +112,43 @@ homebrewなどで最新のNode.jsをインストールするか、nodenvなど�
 - homebrewで最新のNode.jsをインストールする: `brew install node`
 - nodenv: https://github.com/nodenv/nodenv?tab=readme-ov-file#installation
 
+#### DevContainerの利用
+
+DevContainerは、Dockerコンテナとして開発環境を構築する機能です。
+既に環境構築するためのコンテナの定義ができているため、手順通りに立ち上げるだけで、環境構築が完了します。
+
+こちらを利用する場合、以下の3つのインストールが必要です。
+
+- [Visual Studio Code][vscode-link]。
+- [Docker Desktop](https://www.docker.com/ja-jp/products/docker-desktop/)
+- [拡張機能 Remote - Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) ([VS Codeで開く](vscode:extension/ms-vscode-remote.remote-containers))
+
+> [!NOTE]
+> ["必要なローカルインストール"](#必要なローカルインストール)の実施は不要ですが、["必要なリソース"](#必要なリソース)の準備は必要です。
+
+Windowsを利用する場合、WSL2での利用が推奨されています。以下のドキュメントを確認し、「Docker Desktop をインストールする」まで実施してください。
+
+> https://learn.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-containers?utm_source=chatgpt.com
+
+こちらを利用する場合には、利用するテンプレートリポジトリを変更します。
+詳しくは[次のページ 0-setup.md](./0-setup.md)に記載します。
+
+#### GitHub Codespacesの利用
+
+GitHub Codespacesは、リモートコンテナ機能を利用して、クラウド上に開発環境を構築する機能です。
+クラウド上で動作するため、ローカルへの準備が不要です。
+有償サービスですが、無料利用枠もあります。
+
+こちらを利用する場合、以下の3つのインストールが必要です。
+
+- [Visual Studio Code][vscode-link]。
+- [拡張機能 GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) ([VS Codeで開く](vscode:extension/GitHub.codespaces))
+
+> [!NOTE]
+> ["必要なローカルインストール"](#必要なローカルインストール)の実施は不要ですが、["必要なリソース"](#必要なリソース)の準備は必要です。
+
+こちらを利用する場合には、利用するテンプレートリポジトリを変更します。
+詳しくは[次のページ 0-setup.md](./0-setup.md)に記載します。
 
 ## 開始
 
