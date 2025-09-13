@@ -32,6 +32,13 @@ GitHub Copilot Chatには、GitHub Copilotに指示を提供したり、外部�
     - プロジェクトが使用するデータベースはどこにありますか？
     - 犬をリストするために関与するファイルは何ですか？
 
+## 日本コミュニティ補足: 経験者向け課題
+
+AIエージェント向けのアーキテクチャ構造の解説資料（AGENTS.md）をCopilotに作らせてください。
+その時に使用したプロンプトと、実際に作ったテキストを以下のスレッドで紹介してください。
+
+https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/8
+
 ## 概要と次のステップ
 
 GitHub Copilotでコンテキストを探索しました。これは品質の高い提案を生成するための鍵です。チャット参加者を使用してGitHub Copilotをガイドする方法と、自然言語でプロジェクトを探索する方法を見ました。[Copilot指示][walkthrough-next]の使用を通じて、Copilotチャットにさらに多くのコンテキストを提供する方法を見てみましょう。
