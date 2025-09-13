@@ -16,7 +16,7 @@ Copilotの助けを借りてサイトのより大きな更新を開始する前�
 Copilot指示は、**.github**フォルダに配置されるマークダウンファイルです。プロジェクトの一部となり、コードベースのすべての貢献者にとってもそうなります。このファイルを使用して、従いたい様々なコーディング標準、プロジェクトが使用する技術、またはCopilot Chatが提案を生成する際に理解することが重要なその他の事項を示すことができます。
 
 > [!IMPORTANT]
-> *copilot-instructions.md*ファイルは、GitHub Copilot Chatへの**すべて**の呼び出しに含まれ、Copilotに送信されるコンテキストの一部になります。LLMが操作できるトークンセットは常に限られているため、大きなCopilot指示ファイルは関連情報を曖昧にする可能性があります。そのため、Copilot指示ファイルはプロジェクト全体の情報に限定し、構築している内容と構築方法の概要を提供すべきです。特定のタスクについてより具体的な情報を提供する必要がある場合は、[プロンプトファイル](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode#about-prompt-files)を作成できます。
+> *copilot-instructions.md*ファイルは、GitHub Copilot Chatへの**すべて**の呼び出しに含まれ、Copilotに送信されるコンテキストの一部になります。LLMが操作できるトークンセットは常に限られているため、大きなCopilot指示ファイルは関連情報を曖昧にする可能性があります。そのため、Copilot指示ファイルはプロジェクト全体の情報に限定し、構築している内容と構築方法の概要を提供すべきです。特定のタスクについてより具体的な情報を提供する必要がある場合は、適用対象をパスで絞り込める[Path-specific instructions(*.instructions.md)](https://docs.github.com/en/copilot/tutorials/customization-library/custom-instructions/your-first-custom-instructions#about-customizations)や[プロンプトファイル](https://docs.github.com/en/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=vscode#about-prompt-files)を作成できます。
 
 Copilot指示ファイルを作成する際に考慮すべきガイドラインは次のとおりです：
 
