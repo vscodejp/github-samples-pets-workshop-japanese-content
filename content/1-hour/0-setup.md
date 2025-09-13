@@ -275,7 +275,7 @@ DevContainer、Codespacesを利用する場合、4321ポート以外にポート
 
 もし、うまくいかない場合にはリポジトリのDiscussionにて、状況をお知らせください。
 
-https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09-q-a
+https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09
 
 ## 概要と次のステップ
 

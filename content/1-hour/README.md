@@ -47,7 +47,7 @@ VS Codeを開き、右下のステータスバーのCopilotのアイコンをク
 
 もし、うまくいかない場合にはリポジトリのDiscussionにて、状況をお知らせください。
 
-https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09-q-a
+https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09
 
 ### ローカルサービス
 
@@ -68,7 +68,7 @@ https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discus
 
 もし、うまくいかない場合にはリポジトリのDiscussionにて、状況をお知らせください。
 
-https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09-q-a
+https://github.com/vscodejp/github-samples-pets-workshop-japanese-content/discussions/categories/vs-code-dev-day-tokyo-2025-09
 
 #### Windowsでのgit及びbashのインストール
 
